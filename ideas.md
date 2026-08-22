@@ -66,3 +66,5 @@ Pulse Coral — #F05A47. This is the unmistakable action and warmth color for Ev
 - Use editorial asymmetry and ticket-stub motifs consistently across pages and dialogs.
 - Keep the primary experience light-themed, with a dark-mode toggle as a considered alternate palette.
 - Use generated visual assets only for prominent featured event imagery and the brand mark; use gradient/color treatments elsewhere to avoid repetition.
+- Ticket-stub geometry now appears as a system cue on discovery cards, booking forms, account tickets, organizer metric panels, reports, and calendar rows.
+- Organizer and account interfaces retain the same warm editorial festival identity through printed-report labels, sun-orbit branding, coral action, cobalt wayfinding, and asymmetric analysis blocks.

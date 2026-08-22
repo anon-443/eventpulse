@@ -34,6 +34,7 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { useTheme } from "../contexts/ThemeContext";
+import { MapView } from "@/components/Map";
 
 type Category = "All" | "Music" | "Tech" | "Design" | "Workshops" | "Festivals";
 type EventType = "All types" | "In-person" | "Hybrid";
@@ -231,7 +232,6 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
         <div className="absolute inset-[5px] rounded-full bg-[var(--pulse-coral)] shadow-[0_4px_12px_rgba(240,90,71,.22)]" />
         <span className="absolute left-[-1px] top-[8px] h-5 w-10 rotate-[-28deg] rounded-full border-2 border-[var(--pulse-cobalt)] border-l-transparent border-b-transparent" />
         <span className="absolute left-[15px] top-[17px] h-[3px] w-5 rotate-[-12deg] rounded-full bg-[var(--pulse-cobalt)]" />
-        <img src="/manus-storage/eventpulse-logo_1d850f6e.png" alt="" onError={(e) => { e.currentTarget.style.display = "none"; }} className="absolute inset-0 h-full w-full object-contain" />
         <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[var(--pulse-sun)] ring-2 ring-background" />
       </div>
       <span className="font-display text-[1.42rem] font-semibold tracking-[-0.04em] text-foreground">Event<span className="text-[var(--pulse-coral)]">Pulse</span></span>
@@ -268,18 +268,18 @@ function FilterSelect({ label, value, options, onChange }: { label: string; valu
 
 function EventCard({ event, onOpen, onBook, large = false }: { event: EventItem; onOpen: () => void; onBook: () => void; large?: boolean }) {
   return (
-    <motion.article layout className="group overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-[0_16px_50px_rgba(37,36,31,.055)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,36,31,.12)]">
+    <motion.article layout className="group relative overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-[0_16px_50px_rgba(37,36,31,.055)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,36,31,.12)]">
       <button onClick={onOpen} className="focus-ring block w-full text-left" aria-label={`View details for ${event.title}`}>
         <EventImage event={event} className={large ? "aspect-[1.75/1]" : "aspect-[1.35/1]"} />
         <div className="p-5 pb-4">
           <div className="mb-4 flex items-start justify-between gap-4">
             <div className="flex items-start gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--pulse-coral)]"><CalendarDays size={14} /><span><span className="block">{event.dateShort}</span><span className="mt-1 block text-[10px] font-medium tracking-[.06em] text-muted-foreground">{event.time}</span></span></div>
-            <button onClick={(e) => { e.stopPropagation(); toast.success("Saved to your shortlist"); }} className="focus-ring rounded-full p-1.5 text-muted-foreground transition hover:bg-muted hover:text-[var(--pulse-coral)]" aria-label={`Save ${event.title}`}><Heart size={16} /></button>
           </div>
           <h3 className="font-display text-[1.55rem] font-semibold leading-[1.02] tracking-[-0.035em] text-card-foreground">{event.title}</h3>
           <p className="mt-3 line-clamp-2 text-sm leading-6 text-muted-foreground">{event.description}</p>
         </div>
       </button>
+      <button onClick={() => toast.success("Saved to your shortlist")} className="focus-ring absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-[var(--pulse-ink)] shadow-sm backdrop-blur transition hover:bg-white hover:text-[var(--pulse-coral)]" aria-label={`Save ${event.title}`}><Heart size={16} /></button>
       <div className="ticket-notch mx-5 flex items-center justify-between border-t border-dashed border-border py-4 text-xs">
         <div className="flex min-w-0 items-center gap-2 text-muted-foreground"><MapPin size={14} className="shrink-0 text-[var(--pulse-cobalt)]" /><span className="truncate">{event.location}</span></div>
         <span className="shrink-0 pl-3 font-bold text-card-foreground">from ${event.price}</span>
@@ -301,6 +301,19 @@ function ModalShell({ children, onClose, wide = false }: { children: React.React
       </motion.div>
     </motion.div>
   );
+}
+
+function VenueMap({ event }: { event: EventItem }) {
+  const coordinates: Record<number, google.maps.LatLngLiteral> = {
+    1: { lat: 40.6782, lng: -73.9442 },
+    2: { lat: 51.5078, lng: -0.1281 },
+    3: { lat: 30.2672, lng: -97.7431 },
+    4: { lat: 41.8781, lng: -87.6298 },
+    5: { lat: 40.6630, lng: -73.9698 },
+    6: { lat: 37.7749, lng: -122.4194 },
+  };
+  const center = coordinates[event.id] ?? coordinates[1];
+  return <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-muted"><MapView key={event.id} className="h-[260px] sm:h-[300px]" initialCenter={center} initialZoom={14} onMapReady={(map) => { if (window.google?.maps?.marker?.AdvancedMarkerElement) new window.google.maps.marker.AdvancedMarkerElement({ map, position: center, title: event.venue }); }} /></div>;
 }
 
 function EventDetails({ event, onClose, onBook }: { event: EventItem; onClose: () => void; onBook: () => void }) {
@@ -333,6 +346,8 @@ function EventDetails({ event, onClose, onBook }: { event: EventItem; onClose: (
             <div className="flex items-center gap-3"><div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--pulse-sun)] font-display text-lg font-semibold text-[var(--pulse-ink)]">{event.organizer.charAt(0)}</div><div><p className="font-semibold">{event.organizer}</p><p className="text-sm text-muted-foreground">{event.organizerRole}</p></div><span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-[var(--pulse-cobalt)]"><ShieldCheck size={14} /> Verified host</span></div>
           </div>
           <div className="relative overflow-hidden rounded-2xl bg-[var(--pulse-sand)] p-5 dark:bg-muted"><div className="absolute -right-4 -top-5 text-[var(--pulse-coral)] opacity-20"><Pin size={70} /></div><p className="relative text-[10px] font-bold uppercase tracking-[.16em] text-muted-foreground">Venue note</p><p className="relative mt-2 max-w-sm text-sm leading-6">Easy to reach, good acoustics, and a bar that knows when to keep the music low.</p></div>
+          <div className="pt-7"><SectionEyebrow tone="cobalt">Find the room</SectionEyebrow><p className="text-sm text-muted-foreground">Explore the venue, zoom in for access routes, or open the map fullscreen.</p><VenueMap event={event} /></div>
+          <div className="border-t border-border pt-7"><SectionEyebrow>Participant notes</SectionEyebrow><div className="rounded-2xl border border-dashed border-border bg-muted/60 p-5"><p className="font-semibold">No participant notes yet</p><p className="mt-2 text-sm leading-6 text-muted-foreground">Reviews and ratings appear here only after verified attendees share feedback. There are no fabricated reviews in EventPulse.</p><button onClick={() => toast.info("Verified attendee feedback opens after the event.")} className="button-press mt-4 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold hover:border-[var(--pulse-coral)] hover:text-[var(--pulse-coral)]">How attendee feedback works</button></div></div>
           <button onClick={onBook} className="button-press mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--pulse-coral)] px-5 py-4 text-sm font-bold text-white shadow-[0_10px_24px_rgba(240,90,71,.22)] transition hover:bg-[var(--pulse-coral-dark)]">Book your spot <ArrowRight size={17} /></button>
         </div>
       </div>
@@ -386,7 +401,7 @@ function BookingFlow({ event, onClose }: { event: EventItem; onClose: () => void
 }
 
 function AppHeader({ onMenu, mobileOpen, onTheme, dark }: { onMenu: () => void; mobileOpen: boolean; onTheme: () => void; dark: boolean }) {
-  return <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-xl"><div className="container flex h-[76px] items-center justify-between"><a href="#top" className="focus-ring"><BrandMark /></a><nav className="hidden items-center gap-7 lg:flex"><a href="#events" className="text-sm font-semibold text-muted-foreground transition hover:text-foreground">Explore events</a><a href="#categories" className="text-sm font-semibold text-muted-foreground transition hover:text-foreground">Categories</a><a href="#how-it-works" className="text-sm font-semibold text-muted-foreground transition hover:text-foreground">How it works</a></nav><div className="hidden items-center gap-3 sm:flex"><button onClick={onTheme} className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:border-[var(--pulse-coral)] hover:text-[var(--pulse-coral)]" aria-label="Toggle theme">{dark ? <Sun size={17} /> : <Moon size={17} />}</button><button onClick={() => toast.info("Sign in is coming with your ticket history.")} className="focus-ring rounded-full px-4 py-2.5 text-sm font-semibold text-foreground transition hover:text-[var(--pulse-coral)]">Sign in</button><button onClick={() => toast.success("Registration interest noted — we’ll save your spot when accounts launch.")} className="button-press focus-ring rounded-full bg-[var(--pulse-ink)] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[var(--pulse-coral)]">Join EventPulse</button></div><button onClick={onMenu} className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-border lg:hidden" aria-label={mobileOpen ? "Close navigation" : "Open navigation"}>{mobileOpen ? <X size={19} /> : <Menu size={19} />}</button></div>{mobileOpen && <motion.nav initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="border-t border-border bg-background px-4 py-4 lg:hidden"><div className="container flex flex-col gap-1"><a href="#events" onClick={onMenu} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-muted">Explore events</a><a href="#categories" onClick={onMenu} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-muted">Categories</a><a href="#how-it-works" onClick={onMenu} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-muted">How it works</a><div className="mt-2 flex gap-2 border-t border-border pt-4"><button onClick={() => toast.info("Sign in is coming with your ticket history.")} className="flex-1 rounded-full border border-border px-4 py-3 text-sm font-semibold">Sign in</button><button onClick={() => toast.success("Registration interest noted.")} className="flex-1 rounded-full bg-[var(--pulse-ink)] px-4 py-3 text-sm font-bold text-white">Join EventPulse</button></div></div></motion.nav>}</header>;
+  return <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-xl"><div className="container flex h-[76px] items-center justify-between"><a href="#top" className="focus-ring"><BrandMark /></a><nav className="hidden items-center gap-7 lg:flex"><a href="#events" className="text-sm font-semibold text-muted-foreground transition hover:text-foreground">Explore events</a><a href="#categories" className="text-sm font-semibold text-muted-foreground transition hover:text-foreground">Categories</a><a href="#how-it-works" className="text-sm font-semibold text-muted-foreground transition hover:text-foreground">How it works</a><a href="/organizer" className="text-sm font-semibold text-[var(--pulse-cobalt)] transition hover:text-[var(--pulse-coral)]">Organizer hub</a></nav><div className="hidden items-center gap-3 sm:flex"><button onClick={onTheme} className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:border-[var(--pulse-coral)] hover:text-[var(--pulse-coral)]" aria-label="Toggle theme">{dark ? <Sun size={17} /> : <Moon size={17} />}</button><a href="/profile" className="focus-ring rounded-full px-4 py-2.5 text-sm font-semibold text-foreground transition hover:text-[var(--pulse-coral)]">Account</a><a href="/profile" className="button-press focus-ring rounded-full bg-[var(--pulse-coral)] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[var(--pulse-coral-dark)]">Sign in / Register</a></div><button onClick={onMenu} className="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-border lg:hidden" aria-label={mobileOpen ? "Close navigation" : "Open navigation"}>{mobileOpen ? <X size={19} /> : <Menu size={19} />}</button></div>{mobileOpen && <motion.nav initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="border-t border-border bg-background px-4 py-4 lg:hidden"><div className="container flex flex-col gap-1"><a href="#events" onClick={onMenu} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-muted">Explore events</a><a href="#categories" onClick={onMenu} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-muted">Categories</a><a href="#how-it-works" onClick={onMenu} className="rounded-xl px-3 py-3 text-sm font-semibold hover:bg-muted">How it works</a><a href="/organizer" className="rounded-xl px-3 py-3 text-sm font-semibold text-[var(--pulse-cobalt)] hover:bg-muted">Organizer hub</a><div className="mt-2 flex gap-2 border-t border-border pt-4"><a href="/profile" className="flex-1 rounded-full border border-border px-4 py-3 text-center text-sm font-semibold">Account</a><a href="/profile" className="flex-1 rounded-full bg-[var(--pulse-coral)] px-4 py-3 text-center text-sm font-bold text-white">Sign in / Register</a></div></div></motion.nav>}</header>;
 }
 
 export default function Home() {

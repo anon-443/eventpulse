@@ -68,3 +68,4 @@ Pulse Coral — #F05A47. This is the unmistakable action and warmth color for Ev
 - Use generated visual assets only for prominent featured event imagery and the brand mark; use gradient/color treatments elsewhere to avoid repetition.
 - Ticket-stub geometry now appears as a system cue on discovery cards, booking forms, account tickets, organizer metric panels, reports, and calendar rows.
 - Organizer and account interfaces retain the same warm editorial festival identity through printed-report labels, sun-orbit branding, coral action, cobalt wayfinding, and asymmetric analysis blocks.
+- The EventPulse lockup now pairs an italic editorial “Event” with a compact uppercase utility “Pulse,” reinforcing the serif/sans split across public, organizer, and account routes.

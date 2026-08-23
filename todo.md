@@ -187,4 +187,4 @@
 - [x] Replace every remaining surfaced concert and music reference on Profile, Organizer Hub, and event-facing UI with non-music content.
 - [x] Rewrite the hero/editorial feature directly in Home.tsx so its image, title, labels, copy, iconography, and countdown context represent the garden-studio feature.
 - [x] Standardize every event-card image to one responsive aspect ratio and uniform visual crop.
-- [ ] Publish the verified updated event catalog and uniform image sizing to GitHub Pages.
+- [x] Publish the verified updated event catalog and uniform image sizing to GitHub Pages.

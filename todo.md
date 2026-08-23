@@ -180,4 +180,4 @@
 - [x] Open and visually verify the Notification Center, then refine any residual blue treatment or oversized spacing.
 - [x] Review and, if needed, refine organizer-draft, AI-history, and ticket-confirmation dialogs, then capture evidence of the charcoal sizing treatment.
 - [x] Capture and review fresh tablet layouts for Home, Organizer Hub, and Profile after the final global sizing/color pass.
-- [ ] Commit and push the sizing/color refinements, wait for the GitHub Pages workflow to succeed, and verify the live site reflects the update.
+- [x] Commit and push the sizing/color refinements, wait for the GitHub Pages workflow to succeed, and verify the live site reflects the update.

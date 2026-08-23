@@ -220,3 +220,9 @@
 - [x] Replace “Your next good night starts here.” with messaging that suits daytime, evening, and hybrid events.
 - [x] Align the supporting hero and editorial-card copy with the refreshed all-hours event positioning.
 - [x] Publish the validated revised hero to GitHub Pages.
+
+## Homepage Feature Image and Overlap Correction
+
+- [x] Use the selected daytime creative image in the homepage feature visual.
+- [x] Remove the overlapping feature-title treatment and reposition the editorial card for clear, non-colliding content.
+- [ ] Publish the validated corrected homepage feature to GitHub Pages.

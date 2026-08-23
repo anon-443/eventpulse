@@ -242,3 +242,9 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
 .paper-grid h1::after { content: "good plan\Astarts here."; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-coral); }
 .dark .paper-grid h1::before { color: var(--foreground); }
 @media (min-width: 1024px) { .paper-grid h1::before, .paper-grid h1::after { font-size: clamp(4.3rem, 5vw, 5.55rem); line-height: .91; } }
+
+/* Keep the user-selected creative image clear: the feature title no longer collides with the editor’s note. */
+.paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { display: none !important; }
+@media (min-width: 1024px) {
+  .paper-grid .float-soft { left: -4.75rem !important; bottom: -1.1rem !important; }
+}

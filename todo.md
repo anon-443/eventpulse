@@ -85,3 +85,12 @@
 - [x] Add an accessible 3D ticket flip with a barcode and event-entry rules on the back.
 - [x] Add quick-sharing controls directly to saved wallet passes.
 - [x] Verify reminder, flip, barcode, sharing, responsive, and production-build behavior before release.
+
+## Ticket Transfer, Ticket Customization, and Rewards Extension
+
+- [x] Add a clearly labelled mock ticket-transfer form to the back of saved 3D wallet passes.
+- [x] Add an organizer ticket-customization panel for ticket theme color and logo selection.
+- [x] Apply organizer ticket-branding choices to generated 3D ticket previews without misleading validation claims.
+- [x] Add an account-scoped Rewards profile tab for mock attendance and referral loyalty points.
+- [x] Verify transfer, customization, rewards persistence, responsive layouts, tests, and production build before release.
+- [x] Persist mock attendance-reward history under the active local account and re-verify organizer branding reaches the wallet pass after navigation.

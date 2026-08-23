@@ -206,4 +206,4 @@
 
 - [x] Widen and reposition the hero copy column so the left-side content uses the available desktop space intentionally.
 - [x] Tune headline width, type scale, line-height, supporting-copy measure, CTA alignment, and statistic spacing for a balanced editorial composition.
-- [ ] Publish the validated hero composition and image reliability correction to GitHub Pages.
+- [x] Publish the validated hero composition and image reliability correction to GitHub Pages.

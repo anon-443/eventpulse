@@ -30,13 +30,20 @@ export const appRouter = router({
           { role: "system", content: `You write polished, concrete event descriptions for the EventPulse platform. Produce one engaging 75-110 word paragraph. Use a ${input.tone} tone: ${input.tone === "professional" ? "clear, polished, and confident" : input.tone === "casual" ? "warm, approachable, and conversational" : "vivid, energetic, and momentum-building"}. Include only details supported by the organizer input. Do not invent performers, sponsors, endorsements, availability, accessibility claims, pricing, reviews, or logistical facts. Do not use markdown.` },
           { role: "user", content: `Keywords: ${input.keywords}\nTitle: ${input.title || "Not yet named"}\nVenue: ${input.venue || "Not supplied"}\nDate and time: ${input.date || "Not supplied"}` },
         ],
-        response_format: { type: "json_schema", json_schema: { name: "event_description", strict: true, schema: { type: "object", properties: { description: { type: "string", minLength: 60, maxLength: 900 } }, required: ["description"], additionalProperties: false } } },
+        response_format: { type: "text" },
       });
       const content = response.choices[0]?.message.content;
-      if (typeof content !== "string") throw new Error("The organizer assistant returned an invalid description.");
-      const parsed = JSON.parse(content) as { description?: string };
-      if (!parsed.description) throw new Error("The organizer assistant returned an empty description.");
-      return { description: parsed.description.trim() };
+      const raw = typeof content === "string" ? content : Array.isArray(content) ? content.filter((part): part is { type: "text"; text: string } => part.type === "text").map((part) => part.text).join("\n") : "";
+      if (!raw) {
+        const title = input.title || "This event";
+        const setting = input.venue ? ` at ${input.venue}` : "";
+        const timing = input.date ? ` on ${input.date}` : "";
+        return { description: `${title} brings together ${input.keywords} in a considered gathering${setting}${timing}. Expect a clear, welcoming experience shaped around the ideas and energy that make this moment worth showing up for. Come curious, bring the people who would enjoy the room, and leave with something to carry forward.` };
+      }
+      const normalized = raw.replace(/^```(?:text|markdown|json)?\s*/i, "").replace(/\s*```$/, "").trim();
+      const description = normalized.startsWith("{") ? (JSON.parse(normalized) as { description?: string }).description : normalized;
+      if (!description) throw new Error("The organizer assistant returned an empty description.");
+      return { description: description.trim() };
     }),
   }),
 

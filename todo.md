@@ -53,3 +53,12 @@
 - [x] Make AI-history restore open and populate the organizer draft editor when it is closed.
 - [x] Add an explicit side-by-side comparison view for two generated AI descriptions.
 - [x] Verify AI history, Wallet & Passes, and event-sharing controls at mobile and tablet breakpoints, then save the updated release.
+
+## Referral, Merge, and Persistence Extension
+
+- [x] Add a local referral insights panel in the profile that records and displays shared-link click activity.
+- [x] Add an organizer merge flow for combining the strongest parts of two saved AI descriptions into a new draft version.
+- [x] Persist Wallet & Passes data locally so saved tickets and pass status survive refreshes.
+- [x] Verify persistence behaviors, tests, responsive layouts, and production build before release.
+- [x] Replace fixed AI-description splicing with an organizer-controlled merge composer that lets users choose content from each version.
+- [x] Exercise and verify referral tracking, AI merge composition, and wallet persistence behavior before saving the release.

@@ -256,6 +256,8 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   .hero-editorial-card { left: -10.25rem !important; bottom: 1.5rem !important; }
   .hero-feature .absolute.bottom-6 { display: none !important; }
   .paper-grid .hero-subtitle { max-width: 34rem !important; }
+  #events > div:first-child { display: grid !important; grid-template-columns: max-content minmax(0, 1fr); align-items: center !important; column-gap: 1.5rem !important; }
+  #events > div:first-child > p { justify-self: start; }
 }
 
 @media (max-width: 639px) {

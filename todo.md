@@ -267,3 +267,8 @@
 - [x] Keep the discovery supporting sentence complete and on one line at desktop width.
 - [x] Improve paragraph widths, line breaks, and alignment in the EventPulse way and discovery sections.
 - [x] Validate responsive text formatting and publish the refinement to GitHub Pages.
+
+## Discovery Header Baseline Alignment
+
+- [x] Align the discovery heading and supporting sentence directly opposite each other with an even desktop gap and shared visual baseline.
+- [x] Preserve a natural stacked layout on mobile, then validate and publish the alignment refinement.

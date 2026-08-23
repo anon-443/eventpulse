@@ -188,3 +188,10 @@
 - [x] Rewrite the hero/editorial feature directly in Home.tsx so its image, title, labels, copy, iconography, and countdown context represent the garden-studio feature.
 - [x] Standardize every event-card image to one responsive aspect ratio and uniform visual crop.
 - [x] Publish the verified updated event catalog and uniform image sizing to GitHub Pages.
+
+## Expanded Event Catalog and Hero Rebalance
+
+- [x] Complete countdown start times and venue-map coordinates for every newly added event so all twelve detail views are accurate.
+- [x] Replace the hero component’s underlying image and editorial content to match the refined aesthetic visual without CSS-only masking.
+- [x] Rebalance the “Your next / good night / starts here.” headline size, line-height, and desktop/mobile composition for clearer visual hierarchy.
+- [ ] Publish the validated expanded catalog, equal image cards, revised hero, and headline to GitHub Pages.

@@ -130,7 +130,7 @@
   .paper-grid > .container { min-height: 520px !important; padding-block: 2.5rem !important; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { isolation: isolate; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > img { opacity: 0; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { z-index: 1; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child { font-size: 0 !important; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child::after { content: "Sunday Garden Studio"; font-size: 1.875rem; font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1; }
@@ -163,7 +163,8 @@
 div[style*="21,71,165"] { border-color: rgba(28, 25, 23, .2) !important; }
 
 /* Compact editorial hero */
-.paper-grid h1 { font-size: clamp(3.35rem, 4.8vw, 3.9rem) !important; }
+.paper-grid h1 { max-width: 8.6ch; font-size: clamp(3.35rem, 4.2vw, 4.7rem) !important; line-height: .9 !important; letter-spacing: -.065em !important; }
+.paper-grid h1 span { font-size: .96em; }
 .paper-grid h1 + p + div { margin-top: 2.5rem !important; }
 .paper-grid .mt-12 > div > p:first-child { font-size: 2.5rem !important; }
 .paper-grid .mt-12 > div > p:last-child { font-size: 12px !important; }
@@ -204,7 +205,7 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
 }
 
 @media (max-width: 639px) {
-  .paper-grid h1 { font-size: clamp(3rem, 14vw, 3.55rem) !important; }
+  .paper-grid h1 { max-width: 8.25ch; font-size: clamp(3rem, 13vw, 3.5rem) !important; line-height: .92 !important; }
   .paper-grid .mt-12 { gap: 1rem !important; }
   .paper-grid .mt-12 > div > p:first-child { font-size: 2.1rem !important; }
   #events h2 { font-size: 2.55rem !important; }

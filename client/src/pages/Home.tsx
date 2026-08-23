@@ -5,6 +5,7 @@ import {
   ArrowRight,
   CalendarDays,
   Check,
+  Copy,
   ChevronDown,
   Clock3,
   CreditCard,
@@ -25,6 +26,7 @@ import {
   Plus,
   Search,
   ShieldCheck,
+  Share2,
   Sparkles,
   Sun,
   Ticket,
@@ -319,6 +321,15 @@ function VenueMap({ event }: { event: EventItem }) {
   return <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-muted"><MapView key={event.id} className="h-[260px] sm:h-[300px]" initialCenter={center} initialZoom={14} onMapReady={(map) => { if (window.google?.maps?.marker?.AdvancedMarkerElement) new window.google.maps.marker.AdvancedMarkerElement({ map, position: center, title: event.venue }); }} /></div>;
 }
 
+function ShareEvent({ event }: { event: EventItem }) {
+  const url = typeof window !== "undefined" ? `${window.location.origin}/?event=${event.id}` : `/?event=${event.id}`;
+  const message = `${event.title} · ${event.date} at ${event.venue}`;
+  const copy = async () => { try { await navigator.clipboard.writeText(url); toast.success("Event link copied."); } catch { toast.info(url); } };
+  const nativeShare = async () => { if (navigator.share) { try { await navigator.share({ title: event.title, text: message, url }); } catch { /* Sharing was dismissed. */ } } else copy(); };
+  const open = (href: string) => window.open(href, "_blank", "noopener,noreferrer");
+  return <section className="border-t border-border pt-7"><div className="flex items-end justify-between gap-4"><div><SectionEyebrow tone="cobalt">Spread the word</SectionEyebrow><p className="text-sm text-muted-foreground">Share this plan with the people who should be there.</p></div><button onClick={nativeShare} className="button-press inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--pulse-cobalt)] text-white" aria-label="Share event"><Share2 size={16} /></button></div><div className="mt-4 flex flex-wrap gap-2"><button onClick={copy} className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 text-xs font-bold hover:border-[var(--pulse-coral)] hover:text-[var(--pulse-coral)]"><Copy size={14} /> Copy link</button><button onClick={() => open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`)} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-[var(--pulse-cobalt)]" aria-label="Share on Facebook"><Facebook size={15} /></button><button onClick={() => { copy(); toast.info("Link copied — open Instagram to share it with your story or post."); }} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-[var(--pulse-coral)]" aria-label="Copy link for Instagram"><Instagram size={15} /></button><button onClick={() => open(`mailto:?subject=${encodeURIComponent(event.title)}&body=${encodeURIComponent(`${message}\n${url}`)}`)} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground" aria-label="Share by email"><Mail size={15} /></button></div></section>;
+}
+
 function EventDetails({ event, onClose, onBook }: { event: EventItem; onClose: () => void; onBook: () => void }) {
   return (
     <ModalShell onClose={onClose} wide>
@@ -350,6 +361,7 @@ function EventDetails({ event, onClose, onBook }: { event: EventItem; onClose: (
             <div className="flex items-center gap-3"><div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--pulse-sun)] font-display text-lg font-semibold text-[var(--pulse-ink)]">{event.organizer.charAt(0)}</div><div><p className="font-semibold">{event.organizer}</p><p className="text-sm text-muted-foreground">{event.organizerRole}</p></div><span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-[var(--pulse-cobalt)]"><ShieldCheck size={14} /> Verified host</span></div>
           </div>
           <div className="relative overflow-hidden rounded-2xl bg-[var(--pulse-sand)] p-5 dark:bg-muted"><div className="absolute -right-4 -top-5 text-[var(--pulse-coral)] opacity-20"><Pin size={70} /></div><p className="relative text-[10px] font-bold uppercase tracking-[.16em] text-muted-foreground">Venue note</p><p className="relative mt-2 max-w-sm text-sm leading-6">Easy to reach, good acoustics, and a bar that knows when to keep the music low.</p></div>
+          <ShareEvent event={event} />
           <div className="pt-7"><SectionEyebrow tone="cobalt">Find the room</SectionEyebrow><p className="text-sm text-muted-foreground">Explore the venue, zoom in for access routes, or open the map fullscreen.</p><VenueMap event={event} /></div>
           <div className="border-t border-border pt-7"><SectionEyebrow>Participant notes</SectionEyebrow><div className="rounded-2xl border border-dashed border-border bg-muted/60 p-5"><p className="font-semibold">No participant notes yet</p><p className="mt-2 text-sm leading-6 text-muted-foreground">Reviews and ratings appear here only after verified attendees share feedback. There are no fabricated reviews in EventPulse.</p><button onClick={() => toast.info("Verified attendee feedback opens after the event.")} className="button-press mt-4 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold hover:border-[var(--pulse-coral)] hover:text-[var(--pulse-coral)]">How attendee feedback works</button></div></div>
           <button onClick={onBook} className="button-press mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--pulse-coral)] px-5 py-4 text-sm font-bold text-white shadow-[0_10px_24px_rgba(240,90,71,.22)] transition hover:bg-[var(--pulse-coral-dark)]">Book your spot <ArrowRight size={17} /></button>

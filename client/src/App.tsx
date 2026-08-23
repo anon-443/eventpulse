@@ -1,5 +1,6 @@
 // EventPulse style reminder: this shell carries the Sunlit Editorial Festival system through every route with warm surfaces, coral action, cobalt navigation, and deliberately quiet page movement.
 import { Toaster } from "@/components/ui/sonner";
+import AIDescriptionHistoryDock from "@/components/AIDescriptionHistoryDock";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { Route, Switch, useLocation } from "wouter";
@@ -12,7 +13,7 @@ import Profile from "./pages/Profile";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   const [location] = useLocation();
-  return <AnimatePresence mode="wait">
+  return <><AnimatePresence mode="wait">
     <motion.div key={location} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.24, ease: [0.23, 1, 0.32, 1] }}>
       <Switch>
         <Route path="/" component={Home} />
@@ -22,7 +23,7 @@ function Router() {
         <Route component={NotFound} />
       </Switch>
     </motion.div>
-  </AnimatePresence>;
+  </AnimatePresence><AIDescriptionHistoryDock /></>;
 }
 
 export default function App() {

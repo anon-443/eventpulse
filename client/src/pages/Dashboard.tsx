@@ -23,7 +23,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useTheme } from "../contexts/ThemeContext";
 import { OrganizerEventDraftDialog } from "@/components/OrganizerEventDraftDialog";
@@ -99,6 +99,7 @@ export default function Dashboard() {
   const [events, setEvents] = useState(initialEvents);
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => { const openDraft = () => setIsAddOpen(true); window.addEventListener("eventpulse:open-description-draft", openDraft); return () => window.removeEventListener("eventpulse:open-description-draft", openDraft); }, []);
   const addEvent = (event: ManagedEvent) => setEvents((current) => [event, ...current]);
   const nav = [{ icon: LayoutDashboard, label: "Overview", active: true }, { icon: CalendarDays, label: "Events" }, { icon: Ticket, label: "Bookings" }, { icon: Users, label: "Audience" }, { icon: BarChart3, label: "Insights" }];
   return <div className="min-h-screen bg-background text-foreground"><div className="flex min-h-screen">

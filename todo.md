@@ -42,3 +42,14 @@
 - [x] Add an Apple Wallet-style mock handoff from the ticket confirmation modal.
 - [x] Verify updated tests, build, and responsive interaction surfaces before release.
 - [x] Verify the tone selector, Notification Center controls, and Apple Wallet mock at mobile and tablet breakpoints, then save the updated release.
+
+## AI History, Wallet, and Sharing Extension
+
+- [x] Update and validate the reusable EventPulse workflow skill for AI description history, wallet management, and event sharing.
+- [x] Add locally persisted AI-description history with compare and restore actions in the Organizer Hub.
+- [x] Add a Wallet & Passes section to the user profile for saved ticket and Apple Wallet mock management.
+- [x] Add accessible social sharing and copy-link controls to event details.
+- [x] Verify tests, production build, and responsive layouts before release.
+- [x] Make AI-history restore open and populate the organizer draft editor when it is closed.
+- [x] Add an explicit side-by-side comparison view for two generated AI descriptions.
+- [x] Verify AI history, Wallet & Passes, and event-sharing controls at mobile and tablet breakpoints, then save the updated release.

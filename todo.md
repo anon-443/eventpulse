@@ -129,3 +129,11 @@
 
 - [x] Write a public README with EventPulse features, local setup, GitHub Pages deployment, and known static-hosting limitations.
 - [x] Publish the README to GitHub and verify `https://anon-443.github.io/eventpulse/` remains reachable.
+
+## Hero Composition Refinement
+
+- [x] Remove excessive vertical empty space above the hero eyebrow and rebalance the desktop hero proportions.
+- [x] Restore a preferred hero visual direction with a polished, portable event image treatment.
+- [x] Replace the oversized Listening Room countdown panel with a more intentional floating editorial feature card.
+- [x] Verify the refined hero composition across desktop, tablet, mobile, and GitHub Pages before release.
+- [ ] Publish the hero refinement to GitHub Pages and verify the live homepage renders the updated event visual and editorial feature card.

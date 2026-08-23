@@ -125,6 +125,17 @@
   .hero-orbit { animation: orbit 18s linear infinite; transform-origin: center; }
   .sun-drift { animation: sun-drift 7s ease-in-out infinite; }
   .float-soft { animation: float-soft 6s ease-in-out infinite; }
+  /* The hero uses an intentionally compact editorial rhythm; this avoids an empty-looking
+     top third on wide viewports while keeping enough room for the visual on the right. */
+  .paper-grid > .container { min-height: 520px !important; padding-block: 2.5rem !important; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { isolation: isolate; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > img { opacity: 0; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { z-index: 1; }
+  .paper-grid .float-soft { bottom: 1.6rem !important; left: .5rem !important; width: 236px !important; min-height: 126px; padding: 1rem 1.1rem !important; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(32,35,42,.96), rgba(21,71,165,.94)) !important; box-shadow: 0 22px 44px rgba(20,27,42,.28) !important; }
+  .paper-grid .float-soft > * { display: none !important; }
+  .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Sunday on the Green\A Live sets · Local makers · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
+  .paper-grid .float-soft::after { content: "A slow, sunlit festival for your Sunday."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
   .stagger-in { animation: stagger-in .55s cubic-bezier(.23,1,.32,1) both; }
   .delay-1 { animation-delay: 70ms; } .delay-2 { animation-delay: 140ms; } .delay-3 { animation-delay: 210ms; } .delay-4 { animation-delay: 280ms; }
   @keyframes orbit { to { transform: rotate(360deg); } }
@@ -135,4 +146,6 @@
 
 @media (min-width: 640px) { .container { padding-inline: 1.5rem; } }
 @media (min-width: 1024px) { .container { max-width: 1280px; padding-inline: 2rem; } }
+@media (max-width: 1023px) { .paper-grid > .container { min-height: auto !important; padding-block: 3.5rem !important; } }
+@media (min-width: 1280px) { .paper-grid > .container { min-height: 545px !important; padding-block: 3rem !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }

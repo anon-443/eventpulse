@@ -26,6 +26,7 @@ import {
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { useTheme } from "../contexts/ThemeContext";
+import { OrganizerEventDraftDialog } from "@/components/OrganizerEventDraftDialog";
 
 type ManagedEvent = {
   id: number;
@@ -53,7 +54,7 @@ function PulseMark() {
   </a>;
 }
 
-function AddEventDialog({ close, onAdd }: { close: () => void; onAdd: (event: ManagedEvent) => void }) {
+function LegacyAddEventDialog({ close, onAdd }: { close: () => void; onAdd: (event: ManagedEvent) => void }) {
   const [form, setForm] = useState({ name: "", date: "", venue: "", capacity: "120" });
   const [error, setError] = useState("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -110,5 +111,5 @@ export default function Dashboard() {
         <section className="mt-6 overflow-hidden rounded-[1.6rem] border border-border bg-card shadow-[0_12px_30px_rgba(37,36,31,.04)]"><div className="flex flex-col gap-4 border-b border-border p-5 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[.17em] text-[var(--pulse-coral)]">Your calendar</p><h2 className="mt-1 font-display text-3xl font-semibold tracking-[-.04em]">Events in motion.</h2></div><div className="flex gap-2"><label className="flex h-10 items-center gap-2 rounded-full border border-border bg-background px-3 text-muted-foreground"><Search size={15} /><input placeholder="Find an event" className="w-28 bg-transparent text-xs outline-none" /></label><button onClick={() => setIsAddOpen(true)} className="hidden rounded-full bg-[var(--pulse-coral)] px-4 py-2 text-xs font-bold text-white sm:block">Add event</button></div></div><div className="overflow-x-auto"><table className="w-full min-w-[760px] text-left"><thead className="bg-[var(--pulse-paper)] text-[10px] uppercase tracking-[.14em] text-muted-foreground dark:bg-muted"><tr><th className="px-5 py-4 font-bold">Event</th><th className="px-5 py-4 font-bold">Date / venue</th><th className="px-5 py-4 font-bold">Status</th><th className="px-5 py-4 font-bold">Tickets</th><th className="px-5 py-4 font-bold">Sales</th><th className="px-5 py-4" /></tr></thead><tbody>{events.map((event) => <tr key={event.id} className="border-t border-dashed border-border text-sm"><td className="px-5 py-4"><div className="flex items-center gap-3"><span className={`h-10 w-1.5 rounded-full ${event.tone}`} /><span className="font-semibold">{event.name}</span></div></td><td className="px-5 py-4"><p>{event.date}</p><p className="mt-1 text-xs text-muted-foreground">{event.venue}</p></td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${event.status === "Live" ? "bg-[rgba(240,90,71,.1)] text-[var(--pulse-coral)]" : event.status === "Draft" ? "bg-[rgba(21,71,165,.08)] text-[var(--pulse-cobalt)]" : "bg-muted text-muted-foreground"}`}>{event.status}</span></td><td className="px-5 py-4"><div className="flex items-center gap-3"><span className="font-semibold">{event.sold}/{event.capacity}</span><span className="h-1.5 w-16 overflow-hidden rounded-full bg-border"><span className="block h-full rounded-full bg-[var(--pulse-coral)]" style={{ width: `${Math.min(100, (event.sold / event.capacity) * 100)}%` }} /></span></div></td><td className="px-5 py-4 font-semibold">{event.revenue}</td><td className="px-5 py-4"><button onClick={() => toast.info(`Opening ${event.name} management tools.`)} className="rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground"><MoreHorizontal size={18} /></button></td></tr>)}</tbody></table></div></section>
       </div>
     </main>
-  </div><AnimatePresence>{isAddOpen && <AddEventDialog close={() => setIsAddOpen(false)} onAdd={addEvent} />}</AnimatePresence></div>;
+  </div><AnimatePresence>{isAddOpen && <OrganizerEventDraftDialog close={() => setIsAddOpen(false)} onAdd={addEvent} />}</AnimatePresence></div>;
 }

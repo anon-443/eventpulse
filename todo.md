@@ -16,3 +16,11 @@
 - [x] Ensure the theme toggle is accessible from every major platform page, including account entry.
 - [x] Add considerate route-level page transitions while preserving reduced-motion support.
 - [x] Verify responsive behavior and production build output.
+
+## Ticket QR, Drafts, and Preferences Extension
+
+- [x] Generate a ticket-specific, machine-readable QR code and include it in the ticket download.
+- [x] Add local auto-save and restore controls for Organizer Hub event drafts, including rich text and image preview data.
+- [x] Add a profile notification-preferences panel for event countdown and booking update alerts.
+- [x] Add focused booking quality-of-life improvements without diluting the editorial event experience.
+- [x] Validate ticket, draft, and preference persistence interactions across responsive layouts.

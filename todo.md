@@ -239,3 +239,9 @@
 - [x] Move the left hero eyebrow, headline, description, CTAs, and statistics upward toward the header at desktop width.
 - [x] Preserve clear spacing, avoid clipping, and keep the museum feature visual balanced beside the elevated copy.
 - [ ] Publish the validated elevated hero stack to GitHub Pages.
+
+## Newsletter Visual Balance
+
+- [x] Add a restrained editorial visual treatment to the empty right side of the newsletter panel.
+- [x] Preserve headline, body copy, email field, and action-button readability at desktop and mobile widths.
+- [ ] Verify and publish the enhanced newsletter panel and elevated hero stack to GitHub Pages.

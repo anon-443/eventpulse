@@ -8,6 +8,12 @@ import App from "./App";
 import { startLogin } from "./const";
 import "./index.css";
 
+const pagesRoute = new URLSearchParams(window.location.search).get("p");
+if (pagesRoute && import.meta.env.BASE_URL !== "/") {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  window.history.replaceState(null, "", `${base}${pagesRoute}${window.location.hash}`);
+}
+
 const queryClient = new QueryClient();
 
 const redirectToLoginIfUnauthorized = (error: unknown) => {

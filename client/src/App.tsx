@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import AIDescriptionHistoryDock from "@/components/AIDescriptionHistoryDock";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import { Route, Switch, useLocation } from "wouter";
+import { Route, Router as WouterRouter, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Dashboard from "./pages/Dashboard";
@@ -27,5 +27,6 @@ function Router() {
 }
 
 export default function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="light" switchable><MotionConfig reducedMotion="user"><TooltipProvider><Toaster position="top-right" richColors /><Router /></TooltipProvider></MotionConfig></ThemeProvider></ErrorBoundary>;
+  const base = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
+  return <ErrorBoundary><ThemeProvider defaultTheme="light" switchable><MotionConfig reducedMotion="user"><TooltipProvider><Toaster position="top-right" richColors /><WouterRouter base={base}><Router /></WouterRouter></TooltipProvider></MotionConfig></ThemeProvider></ErrorBoundary>;
 }

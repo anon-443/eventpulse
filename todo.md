@@ -105,3 +105,9 @@
 - [x] Audit all tracked files and reachable Git history for secrets, personal data, local artifacts, and credentials.
 - [x] Remove or exclude any sensitive material found before changing GitHub repository visibility.
 - [x] Validate the sanitized codebase and publish `anon-443/eventpulse` as a public repository.
+
+## Free GitHub Pages Hosting
+
+- [x] Review the current build, routes, and server-backed features for GitHub Pages compatibility.
+- [x] Add a GitHub Pages build and deployment workflow for `anon-443.github.io/eventpulse`.
+- [ ] Document static-hosting limitations and verify the Pages deployment URL.

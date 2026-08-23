@@ -124,3 +124,8 @@
 
 - [x] Commit and push the current verified EventPulse changes to `anon-443/eventpulse`.
 - [x] Verify the public repository reflects the published commit.
+
+## Public Documentation and Live Site
+
+- [x] Write a public README with EventPulse features, local setup, GitHub Pages deployment, and known static-hosting limitations.
+- [x] Publish the README to GitHub and verify `https://anon-443.github.io/eventpulse/` remains reachable.

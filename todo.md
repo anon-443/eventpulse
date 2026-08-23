@@ -24,3 +24,12 @@
 - [x] Add a profile notification-preferences panel for event countdown and booking update alerts.
 - [x] Add focused booking quality-of-life improvements without diluting the editorial event experience.
 - [x] Validate ticket, draft, and preference persistence interactions across responsive layouts.
+
+## Reusable Workflow and Organizer Intelligence Extension
+
+- [x] Package the proven EventPulse delivery workflow as a reusable skill and validate it.
+- [x] Add a live drafted-event preview to the Organizer Hub creation flow.
+- [x] Add a keyword-to-description text assistant to the organizer creation flow.
+- [x] Add a visual notification-center dropdown that respects locally saved notification preferences.
+- [x] Verify the new organizer and navigation interactions and save the updated release.
+- [x] Save a new EventPulse checkpoint after the organizer preview, AI description assistant, notification center, and reusable skill are validated.

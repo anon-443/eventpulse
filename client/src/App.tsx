@@ -9,8 +9,8 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   const [location] = useLocation();
   return <AnimatePresence mode="wait">
     <motion.div key={location} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.24, ease: [0.23, 1, 0.32, 1] }}>

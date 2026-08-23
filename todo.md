@@ -194,4 +194,4 @@
 - [x] Complete countdown start times and venue-map coordinates for every newly added event so all twelve detail views are accurate.
 - [x] Replace the hero component’s underlying image and editorial content to match the refined aesthetic visual without CSS-only masking.
 - [x] Rebalance the “Your next / good night / starts here.” headline size, line-height, and desktop/mobile composition for clearer visual hierarchy.
-- [ ] Publish the validated expanded catalog, equal image cards, revised hero, and headline to GitHub Pages.
+- [x] Publish the validated expanded catalog, equal image cards, revised hero, and headline to GitHub Pages.

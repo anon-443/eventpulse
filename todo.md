@@ -233,3 +233,9 @@
 - [x] Move the eyebrow, headline, supporting copy, CTAs, feature image, and editorial card higher to remove excess space above the hero content.
 - [x] Keep the 10k+, 500+, and 42 statistics visible in the first screen at desktop width without clipping.
 - [x] Publish the validated above-the-fold composition to GitHub Pages.
+
+## Left Hero Stack Elevation
+
+- [x] Move the left hero eyebrow, headline, description, CTAs, and statistics upward toward the header at desktop width.
+- [x] Preserve clear spacing, avoid clipping, and keep the museum feature visual balanced beside the elevated copy.
+- [ ] Publish the validated elevated hero stack to GitHub Pages.

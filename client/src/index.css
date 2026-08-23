@@ -256,3 +256,7 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   .paper-grid > .container > .relative.hidden { margin-top: .55rem; }
   .paper-grid .mt-12 { margin-top: 2.1rem !important; }
 }
+
+@media (max-width: 1023px) {
+  .paper-grid > .container { padding-top: 1.35rem !important; padding-bottom: 2.4rem !important; }
+}

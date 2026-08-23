@@ -207,3 +207,9 @@
 - [x] Widen and reposition the hero copy column so the left-side content uses the available desktop space intentionally.
 - [x] Tune headline width, type scale, line-height, supporting-copy measure, CTA alignment, and statistic spacing for a balanced editorial composition.
 - [x] Publish the validated hero composition and image reliability correction to GitHub Pages.
+
+## Hero Spacing Correction
+
+- [x] Reduce the desktop grid gap and reposition the hero image and editorial feature card closer to the copy block.
+- [x] Preserve the clearer hero typography while removing the empty middle area at widescreen desktop sizes.
+- [ ] Publish the validated tightened hero layout to GitHub Pages.

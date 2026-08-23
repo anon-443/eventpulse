@@ -159,6 +159,8 @@
 @media (min-width: 1024px) {
   .paper-grid > .container { grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr) !important; column-gap: 3rem !important; }
   .paper-grid > .container > .relative.z-10 { max-width: 36rem !important; margin-left: clamp(1rem, 4vw, 4.75rem); padding-bottom: .5rem; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { width: 92% !important; transform: translateX(-3.5rem) rotate(2deg) !important; }
+  .paper-grid .float-soft { left: -3.75rem !important; }
   .paper-grid h1 { max-width: 9.1ch; font-size: clamp(4.3rem, 5vw, 5.55rem) !important; line-height: .91 !important; }
   .paper-grid h1 + p { max-width: 32rem !important; margin-top: 1.8rem !important; font-size: 1.13rem !important; line-height: 1.58 !important; }
   .paper-grid h1 + p + div { margin-top: 2.15rem !important; }

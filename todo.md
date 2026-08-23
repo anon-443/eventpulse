@@ -78,3 +78,10 @@
 - [x] Add wallet-pass search and calendar-based expiry filters with durable local preferences.
 - [x] Scope organizer draft metadata, referral events, wallet passes, and preferences to the active account-preview identity.
 - [x] Verify exports, scoped persistence, responsive controls, tests, and production build before release.
+
+## Ticket Wallet Reminders and Sharing Extension
+
+- [x] Add account-scoped configurable pass-expiry reminder settings and contextual mock alerts.
+- [x] Add an accessible 3D ticket flip with a barcode and event-entry rules on the back.
+- [x] Add quick-sharing controls directly to saved wallet passes.
+- [x] Verify reminder, flip, barcode, sharing, responsive, and production-build behavior before release.

@@ -15,7 +15,7 @@ type TicketBranding = { themeColor: string; logo: string };
 type TicketTransfer = { email: string; requestedAt: string };
 const defaultBranding: TicketBranding = { themeColor: "#1C1917", logo: "EP" };
 const upcoming: TicketItem[] = [
-  { name: "The Listening Room", date: "Fri, 18 Oct · 7:30 PM", place: "The Glasshouse · Brooklyn, NY", code: "EP-00124", color: "bg-[var(--pulse-coral)]", expiresAt: "2026-10-18", rules: ["Doors open 30 minutes before start", "Keep this pass ready at entry", "This ticket is valid for one guest"] },
+  { name: "The Open Table", date: "Fri, 18 Oct · 6:30 PM", place: "The Glasshouse · Brooklyn, NY", code: "EP-00124", color: "bg-[var(--pulse-coral)]", expiresAt: "2026-10-18", rules: ["Arrive 20 minutes before the welcome table", "Keep this pass ready at entry", "This ticket is valid for one guest"] },
   { name: "The Human Side of AI", date: "Thu, 07 Nov · 6:00 PM", place: "The Foundry · Austin, TX + online", code: "EP-00376", color: "bg-[var(--pulse-cobalt)]", expiresAt: "2026-11-07", rules: ["Bring photo ID for in-person entry", "Online link arrives by email", "Late entry is subject to venue policy"] },
 ];
 const readJSON = <T,>(key: string, fallback: T): T => { try { return JSON.parse(localStorage.getItem(scopedKey(key)) ?? "") as T; } catch { return fallback; } };

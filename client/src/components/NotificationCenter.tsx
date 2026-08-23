@@ -19,8 +19,8 @@ export default function NotificationCenter() {
   useEffect(() => { const sync = () => { setPreferences(loadPreferences()); setReadAlerts(loadRead()); }; sync(); window.addEventListener("storage", sync); return () => window.removeEventListener("storage", sync); }, []);
   useEffect(() => { localStorage.setItem(readKey, JSON.stringify(readAlerts)); }, [readAlerts]);
   const alerts = useMemo(() => [
-    { key: "countdown", icon: CalendarClock, tone: "text-[var(--pulse-coral)]", label: "The Listening Room", detail: "Doors open in 2 days · Glasshouse, Brooklyn", stamp: "COUNTDOWN", href: appPath("/#events") },
-    { key: "booking", icon: Ticket, tone: "text-[var(--pulse-ink)]", label: "Ticket confirmation ready", detail: "Your scannable admission pass is saved for The Listening Room.", stamp: "BOOKING", href: appPath("/profile") },
+    { key: "countdown", icon: CalendarClock, tone: "text-[var(--pulse-coral)]", label: "The Open Table", detail: "Welcome table begins in 2 days · Glasshouse, Brooklyn", stamp: "COUNTDOWN", href: appPath("/#events") },
+    { key: "booking", icon: Ticket, tone: "text-[var(--pulse-ink)]", label: "Ticket confirmation ready", detail: "Your scannable admission pass is saved for The Open Table.", stamp: "BOOKING", href: appPath("/profile") },
     { key: "weekly", icon: Bell, tone: "text-[var(--pulse-sun)]", label: "Your weekly pulse", detail: "Two saved events are coming into focus this week.", stamp: "WEEKLY", href: appPath("/#events") },
   ].filter((alert) => preferences[alert.key as keyof Preferences] !== false), [preferences]);
   const visibleAlerts = alerts.filter((alert) => category === "all" || alert.key === category);

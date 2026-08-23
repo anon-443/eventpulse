@@ -43,7 +43,7 @@ import { appPath } from "@/lib/appPath";
 import NotificationCenter from "@/components/NotificationCenter";
 import TicketConfirmationPro from "@/components/TicketConfirmationPro";
 
-type Category = "All" | "Music" | "Tech" | "Design" | "Workshops" | "Festivals";
+type Category = "All" | "Community" | "Tech" | "Design" | "Workshops" | "Wellness";
 type EventType = "All types" | "In-person" | "Hybrid";
 type PriceFilter = "Any price" | "Under $50" | "$50–$100" | "$100+";
 type DateFilter = "Any date" | "This week" | "This month";
@@ -74,28 +74,28 @@ type EventItem = {
 const EVENTS: EventItem[] = [
   {
     id: 1,
-    title: "The Listening Room",
-    category: "Music",
+    title: "The Open Table",
+    category: "Community",
     type: "In-person",
     date: "Fri, 18 Oct 2026",
     dateShort: "18 Oct",
     month: "OCT",
-    time: "7:30 PM — 11:00 PM",
+    time: "6:30 PM — 9:30 PM",
     venue: "The Glasshouse",
     location: "Brooklyn, NY",
     price: 48,
-    description: "A close-up night of new voices, warm rooms, and the songs you’ll be talking about on the way home.",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=86",
+    description: "A long-table evening of seasonal plates, thoughtful conversation, and new neighbors worth knowing.",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=86",
     featured: true,
     hot: true,
     attendees: "420 going",
-    organizer: "Sunday Social Club",
-    organizerRole: "Independent music curators",
+    organizer: "Common Table Society",
+    organizerRole: "Neighborhood gathering hosts",
     color: "coral",
     agenda: [
-      { time: "7:30 PM", title: "Doors & first pour", detail: "Find a spot, say hello, stay awhile." },
-      { time: "8:15 PM", title: "Mina Okafor", detail: "Intimate set, full band." },
-      { time: "9:25 PM", title: "The Listening Room", detail: "Three new voices, one shared stage." },
+      { time: "6:30 PM", title: "Welcome table", detail: "Find your place, meet your table, and settle in." },
+      { time: "7:15 PM", title: "Seasonal supper", detail: "Shared plates from local growers and cooks." },
+      { time: "8:30 PM", title: "The long conversation", detail: "A gently guided exchange with new neighbors." },
     ],
   },
   {
@@ -174,27 +174,27 @@ const EVENTS: EventItem[] = [
   },
   {
     id: 5,
-    title: "Sunday on the Green",
-    category: "Festivals",
+    title: "Sunday Garden Studio",
+    category: "Wellness",
     type: "In-person",
     date: "Sun, 17 Nov 2026",
     dateShort: "17 Nov",
     month: "NOV",
-    time: "12:00 PM — 8:00 PM",
-    venue: "Prospect Park Bandshell",
+    time: "10:00 AM — 3:00 PM",
+    venue: "Prospect Park Garden House",
     location: "Brooklyn, NY",
-    price: 18,
-    description: "A soft landing into the week ahead: live sets, local makers, picnic blankets, and the long way home.",
-    image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1400&q=86",
+    price: 22,
+    description: "A restorative outdoor studio for simple planting, gentle movement, and a slower kind of Sunday.",
+    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1400&q=86",
     hot: true,
-    attendees: "1.2k going",
-    organizer: "The Sunday Assembly",
-    organizerRole: "Neighborhood festival makers",
+    attendees: "160 going",
+    organizer: "Field Notes Collective",
+    organizerRole: "Urban garden educators",
     color: "coral",
     agenda: [
-      { time: "12:00 PM", title: "Market opens", detail: "Makers, food, and a little sunshine." },
-      { time: "3:00 PM", title: "Live stage", detail: "Four local acts across one easy afternoon." },
-      { time: "6:30 PM", title: "Golden hour finale", detail: "Bring your favorite people to the front." },
+      { time: "10:00 AM", title: "Garden welcome", detail: "Choose a seedling and a quiet corner to begin." },
+      { time: "11:30 AM", title: "Planting workshop", detail: "Hands-on guidance for windowsills and small spaces." },
+      { time: "1:30 PM", title: "Slow studio hour", detail: "Sketch, stretch, and share a seasonal picnic." },
     ],
   },
   {
@@ -223,13 +223,13 @@ const EVENTS: EventItem[] = [
   },
 ];
 
-const categories: { label: Category; icon: typeof Music2 }[] = [
+const categories: { label: Category; icon: typeof Sparkles }[] = [
   { label: "All", icon: Sparkles },
-  { label: "Music", icon: Music2 },
+  { label: "Community", icon: Users },
   { label: "Tech", icon: Zap },
   { label: "Design", icon: Palette },
   { label: "Workshops", icon: Users },
-  { label: "Festivals", icon: Sun },
+  { label: "Wellness", icon: Sun },
 ];
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
@@ -311,7 +311,7 @@ function EventCard({ event, onOpen, onBook, large = false }: { event: EventItem;
   return (
     <motion.article layout className="ticket-notch group relative overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-[0_16px_50px_rgba(37,36,31,.055)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,36,31,.12)]">
       <button onClick={onOpen} className="focus-ring block w-full text-left" aria-label={`View details for ${event.title}`}>
-        <div className="relative overflow-hidden"><EventImage event={event} className={large ? "aspect-[1.75/1]" : "aspect-[1.35/1]"} /><div className="pointer-events-none absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl border border-white/15 bg-[rgba(25,31,45,.88)] px-3 py-3 text-white opacity-0 shadow-xl backdrop-blur-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><div className="flex items-center justify-between gap-3 text-[10px] font-bold uppercase tracking-[.13em] text-white/68"><span>{event.type}</span><span>{event.month} {event.dateShort.split(" ")[0]}</span></div><p className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold"><MapPin size={13} className="text-[var(--pulse-sun)]" /> {event.venue}</p><p className="mt-1 text-[11px] text-white/70">{event.time} · {event.attendees} planning to go</p></div></div>
+        <div className="relative overflow-hidden"><EventImage event={event} className="aspect-[4/3]" /><div className="pointer-events-none absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl border border-white/15 bg-[rgba(25,31,45,.88)] px-3 py-3 text-white opacity-0 shadow-xl backdrop-blur-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><div className="flex items-center justify-between gap-3 text-[10px] font-bold uppercase tracking-[.13em] text-white/68"><span>{event.type}</span><span>{event.month} {event.dateShort.split(" ")[0]}</span></div><p className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold"><MapPin size={13} className="text-[var(--pulse-sun)]" /> {event.venue}</p><p className="mt-1 text-[11px] text-white/70">{event.time} · {event.attendees} planning to go</p></div></div>
         <div className="p-5 pb-4">
           <div className="mb-4 flex items-start justify-between gap-4">
             <div className="flex items-start gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--pulse-coral)]"><CalendarDays size={14} /><span><span className="block">{event.dateShort}</span><span className="mt-1 block text-[10px] font-medium tracking-[.06em] text-muted-foreground">{event.time}</span></span></div><span className="rounded-full border border-[rgba(240,90,71,.22)] bg-[rgba(240,90,71,.06)] px-2 py-1 text-[9px] font-bold uppercase tracking-[.13em] text-[var(--pulse-coral)]">EP · {String(event.id).padStart(2, "0")}</span>
@@ -398,7 +398,7 @@ function EventDetails({ event, onClose, onBook }: { event: EventItem; onClose: (
             <SectionEyebrow>Hosted by</SectionEyebrow>
             <div className="flex items-center gap-3"><div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--pulse-sun)] font-display text-lg font-semibold text-[var(--pulse-ink)]">{event.organizer.charAt(0)}</div><div><p className="font-semibold">{event.organizer}</p><p className="text-sm text-muted-foreground">{event.organizerRole}</p></div><span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-[var(--pulse-cobalt)]"><ShieldCheck size={14} /> Verified host</span></div>
           </div>
-          <div className="relative overflow-hidden rounded-2xl bg-[var(--pulse-sand)] p-5 dark:bg-muted"><div className="absolute -right-4 -top-5 text-[var(--pulse-coral)] opacity-20"><Pin size={70} /></div><p className="relative text-[10px] font-bold uppercase tracking-[.16em] text-muted-foreground">Venue note</p><p className="relative mt-2 max-w-sm text-sm leading-6">Easy to reach, good acoustics, and a bar that knows when to keep the music low.</p></div>
+          <div className="relative overflow-hidden rounded-2xl bg-[var(--pulse-sand)] p-5 dark:bg-muted"><div className="absolute -right-4 -top-5 text-[var(--pulse-coral)] opacity-20"><Pin size={70} /></div><p className="relative text-[10px] font-bold uppercase tracking-[.16em] text-muted-foreground">Venue note</p><p className="relative mt-2 max-w-sm text-sm leading-6">Easy to reach, good natural light, and a host team that keeps every arrival simple.</p></div>
           <ShareEvent event={event} />
           <div className="pt-7"><SectionEyebrow tone="cobalt">Find the room</SectionEyebrow><p className="text-sm text-muted-foreground">Explore the venue, zoom in for access routes, or open the map fullscreen.</p><VenueMap event={event} /></div>
           <div className="border-t border-border pt-7"><SectionEyebrow>Participant notes</SectionEyebrow><div className="rounded-2xl border border-dashed border-border bg-muted/60 p-5"><p className="font-semibold">No participant notes yet</p><p className="mt-2 text-sm leading-6 text-muted-foreground">Reviews and ratings appear here only after verified attendees share feedback. There are no fabricated reviews in EventPulse.</p><button onClick={() => toast.info("Verified attendee feedback opens after the event.")} className="button-press mt-4 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold hover:border-[var(--pulse-coral)] hover:text-[var(--pulse-coral)]">How attendee feedback works</button></div></div>
@@ -414,7 +414,7 @@ function StepPill({ current, number, label }: { current: number; number: number;
   return <div className={`flex items-center gap-2 text-xs font-semibold ${active ? "text-foreground" : "text-muted-foreground"}`}><span className={`flex h-7 w-7 items-center justify-center rounded-full border text-[11px] ${active ? "border-[var(--pulse-coral)] bg-[var(--pulse-coral)] text-white" : "border-border"}`}>{current > number ? <Check size={14} /> : number}</span><span className="hidden sm:inline">{label}</span></div>;
 }
 
-const eventStartTimes: Record<number, string> = { 1: "2026-10-18T19:30:00", 2: "2026-10-26T10:00:00", 3: "2026-11-07T18:00:00", 4: "2026-11-10T09:00:00", 5: "2026-11-17T12:00:00", 6: "2026-11-27T19:00:00" };
+const eventStartTimes: Record<number, string> = { 1: "2026-10-18T18:30:00", 2: "2026-10-26T10:00:00", 3: "2026-11-07T18:00:00", 4: "2026-11-10T09:00:00", 5: "2026-11-17T10:00:00", 6: "2026-11-27T19:00:00" };
 
 function EventCountdown({ event }: { event: EventItem }) {
   const start = new Date(eventStartTimes[event.id] ?? eventStartTimes[1]).getTime();

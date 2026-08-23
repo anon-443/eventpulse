@@ -130,12 +130,14 @@
   .paper-grid > .container { min-height: 520px !important; padding-block: 2.5rem !important; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { isolation: isolate; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > img { opacity: 0; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { z-index: 1; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child { font-size: 0 !important; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child::after { content: "Sunday Garden Studio"; font-size: 1.875rem; font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1; }
   .paper-grid .float-soft { bottom: 1.15rem !important; left: -2.2rem !important; width: 236px !important; min-height: 126px; padding: 1rem 1.1rem !important; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(28,25,23,.97), rgba(47,43,40,.94)) !important; box-shadow: 0 22px 44px rgba(20,20,18,.24) !important; }
   .paper-grid .float-soft > * { display: none !important; }
-  .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Sunday on the Green\A Live sets · Local makers · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
-  .paper-grid .float-soft::after { content: "A slow, sunlit festival for your Sunday."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
+  .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Sunday Garden Studio\A quiet morning outdoors · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
+  .paper-grid .float-soft::after { content: "A restorative day for planting and making."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
   .dark .paper-grid { background-color: oklch(.18 .02 55); background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); }
   .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { filter: saturate(.78) brightness(.68) contrast(1.08); }
   .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(15,15,14,.16), rgba(28,25,23,.3)); pointer-events: none; }
@@ -173,16 +175,14 @@ div[style*="21,71,165"] { border-color: rgba(28, 25, 23, .2) !important; }
 #events h2 { font-size: clamp(2.6rem, 4.2vw, 2.75rem) !important; }
 #events > div:first-child > p { font-size: 15px !important; color: var(--muted-foreground) !important; }
 #events .mt-5.grid { gap: 1rem !important; }
-#events .mt-5.grid > div:first-child .group > button > div:first-child > div:first-child { aspect-ratio: 16 / 9 !important; max-height: 320px; }
-#events .mt-5.grid > div:not(:first-child) .group > button > div:first-child > div:first-child { aspect-ratio: 3 / 2 !important; max-height: 220px; }
+#events .mt-5.grid > div:first-child { grid-column: span 1 / span 1 !important; }
+#events .mt-5.grid > div .group > button > div:first-child > div:first-child { aspect-ratio: 4 / 3 !important; max-height: none !important; }
 #events .group { box-shadow: 0 2px 16px rgba(0, 0, 0, .07) !important; }
 #events .group:hover { box-shadow: 0 12px 28px rgba(0, 0, 0, .11) !important; }
-#events .mt-5.grid > div:first-child .group h3 { font-size: 1.75rem !important; font-weight: 700; }
-#events .mt-5.grid > div:not(:first-child) .group h3 { font-size: 1.35rem !important; font-weight: 700; }
+#events .mt-5.grid > div .group h3 { font-size: 1.35rem !important; font-weight: 700; }
 #events .group h3 + p { font-size: 14px !important; line-height: 1.6 !important; }
 #events .ticket-dashes { opacity: .4; }
-#events .mt-5.grid > div:first-child .group > div:last-child .button-press { height: 44px; }
-#events .mt-5.grid > div:not(:first-child) .group > div:last-child .button-press { height: 40px; padding-top: 0; padding-bottom: 0; }
+#events .mt-5.grid > div .group > div:last-child .button-press { height: 40px; padding-top: 0; padding-bottom: 0; }
 
 /* Consistent section, newsletter, and footer rhythm */
 main > section:nth-of-type(3) > .container { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
@@ -208,6 +208,6 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   .paper-grid .mt-12 { gap: 1rem !important; }
   .paper-grid .mt-12 > div > p:first-child { font-size: 2.1rem !important; }
   #events h2 { font-size: 2.55rem !important; }
-  #events .mt-5.grid > div:first-child .group > button > div:first-child > div:first-child { max-height: none; }
+  #events .mt-5.grid > div .group > button > div:first-child > div:first-child { max-height: none; }
   main > section:nth-of-type(4) { padding-top: 4rem !important; padding-bottom: 3rem !important; }
 }

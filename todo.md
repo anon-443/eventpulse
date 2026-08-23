@@ -181,3 +181,10 @@
 - [x] Review and, if needed, refine organizer-draft, AI-history, and ticket-confirmation dialogs, then capture evidence of the charcoal sizing treatment.
 - [x] Capture and review fresh tablet layouts for Home, Organizer Hub, and Profile after the final global sizing/color pass.
 - [x] Commit and push the sizing/color refinements, wait for the GitHub Pages workflow to succeed, and verify the live site reflects the update.
+
+## Event Catalog and Image Consistency Refresh
+
+- [x] Replace every remaining surfaced concert and music reference on Profile, Organizer Hub, and event-facing UI with non-music content.
+- [x] Rewrite the hero/editorial feature directly in Home.tsx so its image, title, labels, copy, iconography, and countdown context represent the garden-studio feature.
+- [x] Standardize every event-card image to one responsive aspect ratio and uniform visual crop.
+- [ ] Publish the verified updated event catalog and uniform image sizing to GitHub Pages.

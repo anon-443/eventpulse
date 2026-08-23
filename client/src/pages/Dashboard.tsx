@@ -43,7 +43,7 @@ type ManagedEvent = {
 };
 
 const initialEvents: ManagedEvent[] = [
-  { id: 1, name: "The Listening Room", date: "18 Oct · 7:30 PM", venue: "The Glasshouse", status: "Live", sold: 420, capacity: 500, revenue: "$20,160", tone: "bg-[var(--pulse-coral)]" },
+  { id: 1, name: "The Open Table", date: "18 Oct · 6:30 PM", venue: "The Glasshouse", status: "Live", sold: 236, capacity: 300, revenue: "$12,744", tone: "bg-[var(--pulse-coral)]" },
   { id: 2, name: "New Forms / New Friends", date: "26 Oct · 10:00 AM", venue: "Northside Studio", status: "Live", sold: 186, capacity: 220, revenue: "$13,392", tone: "bg-[var(--pulse-cobalt)]" },
   { id: 3, name: "Objects With a Point of View", date: "27 Nov · 7:00 PM", venue: "The Archive Hall", status: "Draft", sold: 0, capacity: 150, revenue: "—", tone: "bg-[var(--pulse-sun)]" },
   { id: 4, name: "Open Studio Night", date: "04 Sep · 6:30 PM", venue: "Practice Space", status: "Past", sold: 140, capacity: 140, revenue: "$5,600", tone: "bg-stone-400" },

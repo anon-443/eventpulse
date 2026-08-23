@@ -97,5 +97,11 @@
 
 ## Source Export and Custom Domain Handoff
 
-- [ ] Export the EventPulse source to the user's GitHub account as the eventpulse repository.
+- [x] Export the EventPulse source to the user's GitHub account as the eventpulse repository.
 - [ ] Confirm the user's intended custom domain and provide the required DNS configuration steps.
+
+## Public Repository Sanitization
+
+- [ ] Audit all tracked files and reachable Git history for secrets, personal data, local artifacts, and credentials.
+- [ ] Remove or exclude any sensitive material found before changing GitHub repository visibility.
+- [ ] Validate the sanitized codebase and publish `anon-443/eventpulse` as a public repository.

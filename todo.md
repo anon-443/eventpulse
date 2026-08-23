@@ -98,7 +98,7 @@
 ## Source Export and Custom Domain Handoff
 
 - [x] Export the EventPulse source to the user's GitHub account as the eventpulse repository.
-- [ ] Confirm the user's intended custom domain and provide the required DNS configuration steps.
+- [x] Confirm the user's hosting choice: use the free `anon-443.github.io/eventpulse` GitHub Pages subdomain, so no custom DNS configuration is required.
 
 ## Public Repository Sanitization
 
@@ -110,4 +110,4 @@
 
 - [x] Review the current build, routes, and server-backed features for GitHub Pages compatibility.
 - [x] Add a GitHub Pages build and deployment workflow for `anon-443.github.io/eventpulse`.
-- [ ] Document static-hosting limitations and verify the Pages deployment URL.
+- [x] Document static-hosting limitations and verify the Pages deployment URL.

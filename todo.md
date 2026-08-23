@@ -169,3 +169,15 @@
 - [x] Add clear local installation, development, validation, and GitHub Pages usage instructions to README.md.
 - [x] Verify the GitHub Actions Pages deployment workflow is present, current, and automatically runs on main-branch pushes.
 - [x] Add relevant public repository topics for event discovery, booking, React, TypeScript, Tailwind CSS, and GitHub Pages.
+
+## Global Sizing and Color Refinement
+
+- [x] Replace the cobalt/blue interface treatments with deep warm charcoal on the homepage while preserving coral actions and the yellow floating control.
+- [x] Refine desktop hero typography, image rotation, editorial-card position, CTA spacing, and stat-label/divider sizing.
+- [x] Reduce section whitespace and calibrate the calendar/search heading and supporting copy scale.
+- [x] Resize featured and standard event-card imagery, text, spacing, shadows, descriptions, and booking controls for more consistent card proportions.
+- [x] Refine newsletter and footer sizing, charcoal surface styling, spacing, controls, and social-icon scale.
+- [x] Open and visually verify the Notification Center, then refine any residual blue treatment or oversized spacing.
+- [x] Review and, if needed, refine organizer-draft, AI-history, and ticket-confirmation dialogs, then capture evidence of the charcoal sizing treatment.
+- [x] Capture and review fresh tablet layouts for Home, Organizer Hub, and Profile after the final global sizing/color pass.
+- [ ] Commit and push the sizing/color refinements, wait for the GitHub Pages workflow to succeed, and verify the live site reflects the update.

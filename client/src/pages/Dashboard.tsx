@@ -98,8 +98,8 @@ function MetricTicket({ icon: Icon, label, value, note, tone, ink = false }: { i
 
 type TicketBranding = { themeColor: string; logo: string };
 const ticketBrandingKey = "eventpulse-ticket-branding-v1";
-const initialTicketBranding: TicketBranding = { themeColor: "#1547A5", logo: "EP" };
-const ticketPalette = ["#1547A5", "#F05A47", "#20232A", "#B88212", "#4D7C62"];
+const initialTicketBranding: TicketBranding = { themeColor: "#1C1917", logo: "EP" };
+const ticketPalette = ["#1C1917", "#F05A47", "#2E2925", "#B88212", "#4D7C62"];
 
 function TicketCustomizationPanel() {
   const [branding, setBranding] = useState<TicketBranding>(() => {

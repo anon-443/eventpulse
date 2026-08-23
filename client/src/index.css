@@ -130,7 +130,7 @@
   .paper-grid > .container { min-height: 520px !important; padding-block: 2.5rem !important; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { isolation: isolate; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > img { opacity: 0; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("/manus-storage/eventpulse-museum-feature_1e4baa48.png") center / cover no-repeat; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { z-index: 1; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child { font-size: 0 !important; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child::after { content: "Open Studio Day"; font-size: 1.875rem; font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1; }
@@ -247,4 +247,12 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
 .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { display: none !important; }
 @media (min-width: 1024px) {
   .paper-grid .float-soft { left: -4.75rem !important; bottom: -1.1rem !important; }
+}
+
+/* Above-the-fold refinement: place the full hero story high in the first screen without clipping the activity figures. */
+@media (min-width: 1024px) {
+  .paper-grid > .container { min-height: 500px !important; align-items: start !important; padding-top: 1.35rem !important; padding-bottom: 1.1rem !important; }
+  .paper-grid > .container > .relative.z-10 { margin-top: .35rem; }
+  .paper-grid > .container > .relative.hidden { margin-top: .55rem; }
+  .paper-grid .mt-12 { margin-top: 2.1rem !important; }
 }

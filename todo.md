@@ -226,3 +226,10 @@
 - [x] Use the selected daytime creative image in the homepage feature visual.
 - [x] Remove the overlapping feature-title treatment and reposition the editorial card for clear, non-colliding content.
 - [x] Publish the validated corrected homepage feature to GitHub Pages.
+
+## Museum Hero and Above-the-Fold Refinement
+
+- [x] Use the user-selected museum image as the homepage feature visual.
+- [x] Move the eyebrow, headline, supporting copy, CTAs, feature image, and editorial card higher to remove excess space above the hero content.
+- [x] Keep the 10k+, 500+, and 42 statistics visible in the first screen at desktop width without clipping.
+- [ ] Publish the validated above-the-fold composition to GitHub Pages.

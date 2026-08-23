@@ -195,3 +195,15 @@
 - [x] Replace the hero component’s underlying image and editorial content to match the refined aesthetic visual without CSS-only masking.
 - [x] Rebalance the “Your next / good night / starts here.” headline size, line-height, and desktop/mobile composition for clearer visual hierarchy.
 - [x] Publish the validated expanded catalog, equal image cards, revised hero, and headline to GitHub Pages.
+
+## Event Image Reliability Fix
+
+- [x] Replace the broken Clay & Conversation image reference with a reliable event visual.
+- [x] Add a graceful image fallback so an unavailable external image never leaves an empty event-card area.
+- [x] Verify all twelve event thumbnails render at desktop, tablet, and mobile widths before publishing the fix.
+
+## Hero Copy Composition Correction
+
+- [x] Widen and reposition the hero copy column so the left-side content uses the available desktop space intentionally.
+- [x] Tune headline width, type scale, line-height, supporting-copy measure, CTA alignment, and statistic spacing for a balanced editorial composition.
+- [ ] Publish the validated hero composition and image reliability correction to GitHub Pages.

@@ -155,6 +155,16 @@
 @media (min-width: 1280px) { .paper-grid > .container { min-height: 545px !important; padding-block: 3rem !important; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 
+/* Hero copy composition: use the full left column rather than pinning the editorial stack to the viewport edge. */
+@media (min-width: 1024px) {
+  .paper-grid > .container { grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr) !important; column-gap: 3rem !important; }
+  .paper-grid > .container > .relative.z-10 { max-width: 36rem !important; margin-left: clamp(1rem, 4vw, 4.75rem); padding-bottom: .5rem; }
+  .paper-grid h1 { max-width: 9.1ch; font-size: clamp(4.3rem, 5vw, 5.55rem) !important; line-height: .91 !important; }
+  .paper-grid h1 + p { max-width: 32rem !important; margin-top: 1.8rem !important; font-size: 1.13rem !important; line-height: 1.58 !important; }
+  .paper-grid h1 + p + div { margin-top: 2.15rem !important; }
+  .paper-grid .mt-12 { margin-top: 3rem !important; gap: 2.3rem !important; }
+}
+
 /* Global charcoal conversion: direct historic cobalt utility values are neutralized alongside the shared accent token. */
 [class*="rgba(21,71,165"], [style*="21,71,165"] { --tw-bg-opacity: 1; }
 [class*="bg-[rgba(21,71,165"], [class*="hover:bg-[rgba(21,71,165"] { background-color: rgba(28, 25, 23, .07) !important; }

@@ -234,7 +234,7 @@ const EVENTS: EventItem[] = [
     location: "Portland, OR",
     price: 46,
     description: "A forgiving afternoon of hand-building, shared tea, and the pleasure of making something slowly.",
-    image: "https://images.unsplash.com/photo-1565193298357-c6441246a25e?auto=format&fit=crop&w=1400&q=86",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=86",
     attendees: "42 going",
     organizer: "Morrow Ceramics",
     organizerRole: "Neighborhood clay studio",
@@ -398,7 +398,7 @@ function SectionEyebrow({ children, tone = "coral" }: { children: React.ReactNod
 function EventImage({ event, className = "" }: { event: EventItem; className?: string }) {
   return (
     <div className={`relative overflow-hidden bg-[var(--pulse-sand)] ${className}`}>
-      <img src={event.image} alt={event.title} className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(.23,1,.32,1)] motion-reduce:transition-none group-hover:scale-[1.075] group-focus-within:scale-[1.075]" />
+      <img src={event.image} alt={event.title} onError={(image) => { image.currentTarget.onerror = null; image.currentTarget.src = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=86"; }} className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(.23,1,.32,1)] motion-reduce:transition-none group-hover:scale-[1.075] group-focus-within:scale-[1.075]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 motion-reduce:transition-none" />
       {event.hot && <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-[var(--pulse-coral)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-[0_4px_14px_rgba(240,90,71,.28)]"><Flame size={12} fill="currentColor" /> Hot pick</span>}
       <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--pulse-ink)] backdrop-blur">{event.category}</span>

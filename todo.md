@@ -157,5 +157,5 @@
 - [x] Preserve hero-card readability, dark-mode treatment, responsive composition, and GitHub Pages compatibility.
 - [x] Verify the calendar action and card layout at mobile and tablet breakpoints after the latest update.
 - [x] Reconfirm the navigation theme toggle applies dark mode and the refreshed hero treatment remains readable.
-- [ ] Verify the refreshed aesthetic hero visual on the live GitHub Pages site before release.
+- [x] Verify the refreshed aesthetic hero visual on the live GitHub Pages site before release.
 - [x] Visually confirm the dark-mode hero image, overlay, and editorial card remain readable after the final visual refresh.

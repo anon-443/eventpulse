@@ -245,3 +245,10 @@
 - [x] Add a restrained editorial visual treatment to the empty right side of the newsletter panel.
 - [x] Preserve headline, body copy, email field, and action-button readability at desktop and mobile widths.
 - [x] Verify and publish the enhanced newsletter panel and elevated hero stack to GitHub Pages.
+
+## Mobile Typography and Copy Polish
+
+- [x] Audit Home, Organizer Hub, Profile, shared dialogs, and navigation for mobile text wrapping, oversized type, and cramped controls.
+- [x] Keep concise labels, metadata, and actions on one line where feasible without reducing legibility or causing overflow.
+- [x] Remove unnecessary terminal periods from short labels, headlines, and UI sentences while retaining punctuation where it improves meaning.
+- [x] Verify the refreshed text system at desktop, tablet, and mobile widths, then publish to GitHub Pages.

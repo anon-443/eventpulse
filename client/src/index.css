@@ -128,19 +128,7 @@
   /* The hero uses an intentionally compact editorial rhythm; this avoids an empty-looking
      top third on wide viewports while keeping enough room for the visual on the right. */
   .paper-grid > .container { min-height: 520px !important; padding-block: 2.5rem !important; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { isolation: isolate; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > img { opacity: 0; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { z-index: 1; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child { font-size: 0 !important; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child::after { content: "Open Studio Day"; font-size: 1.875rem; font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1; }
-  .paper-grid .float-soft { bottom: 1.15rem !important; left: -2.2rem !important; width: 236px !important; min-height: 126px; padding: 1rem 1.1rem !important; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(28,25,23,.97), rgba(47,43,40,.94)) !important; box-shadow: 0 22px 44px rgba(20,20,18,.24) !important; }
-  .paper-grid .float-soft > * { display: none !important; }
-  .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Open Studio Day\A creative daytime session · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
-  .paper-grid .float-soft::after { content: "Make, meet, and leave with fresh ideas."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
   .dark .paper-grid { background-color: oklch(.18 .02 55); background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); }
-  .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { filter: saturate(.78) brightness(.68) contrast(1.08); }
-  .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(15,15,14,.16), rgba(28,25,23,.3)); pointer-events: none; }
   .stagger-in { animation: stagger-in .55s cubic-bezier(.23,1,.32,1) both; }
   .delay-1 { animation-delay: 70ms; } .delay-2 { animation-delay: 140ms; } .delay-3 { animation-delay: 210ms; } .delay-4 { animation-delay: 280ms; }
   @keyframes orbit { to { transform: rotate(360deg); } }
@@ -174,20 +162,12 @@
 [class*="shadow-[0_7px_16px_rgba(21,71,165"] { box-shadow: 0 7px 16px rgba(28, 25, 23, .16) !important; }
 div[style*="21,71,165"] { border-color: rgba(28, 25, 23, .2) !important; }
 
-/* All-hours event language: the headline now works for daytime, evening, and hybrid plans. */
-.paper-grid h1 { font-size: 0 !important; line-height: 1 !important; }
-.paper-grid h1::before { content: "Your next\A"; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-ink); }
-.paper-grid h1::after { content: "good plan\Astarts here."; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-coral); }
-.dark .paper-grid h1::before { color: var(--foreground); }
-
-/* Compact editorial hero */
-.paper-grid h1 { max-width: 8.6ch; font-size: clamp(3.35rem, 4.2vw, 4.7rem) !important; line-height: .9 !important; letter-spacing: -.065em !important; }
-.paper-grid h1 span { font-size: .96em; }
-.paper-grid h1 + p + div { margin-top: 2.5rem !important; }
-.paper-grid .mt-12 > div > p:first-child { font-size: 2.5rem !important; }
-.paper-grid .mt-12 > div > p:last-child { font-size: 12px !important; }
-.paper-grid .mt-12 > .h-9 { background-color: rgba(28, 25, 23, .4) !important; }
-.dark .paper-grid .mt-12 > .h-9 { background-color: rgba(255, 255, 255, .4) !important; }
+.hero-title { font-size: clamp(3.35rem, 4.2vw, 4.7rem); line-height: .9; letter-spacing: -.065em; }
+.hero-title span { font-size: .96em; }
+.ticket-notch > h1 > span { display: block; }
+.hero-stats > div > p:first-child { font-size: 2.5rem !important; }
+.hero-stats > .h-9 { background-color: rgba(28, 25, 23, .4) !important; }
+.dark .hero-stats > .h-9 { background-color: rgba(255, 255, 255, .4) !important; }
 
 /* Discovery density and card hierarchy */
 #events { padding-top: 4rem !important; padding-bottom: 5rem !important; }
@@ -223,30 +203,19 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
 }
 
 @media (max-width: 639px) {
-  .paper-grid h1 { max-width: 8.25ch; font-size: clamp(3rem, 13vw, 3.5rem) !important; line-height: .92 !important; }
-  .paper-grid .mt-12 { gap: 1rem !important; }
-  .paper-grid .mt-12 > div > p:first-child { font-size: 2.1rem !important; }
+  .hero-title { font-size: clamp(2.9rem, 13vw, 3.5rem); line-height: .92; }
+  .hero-kicker { max-width: 100%; white-space: nowrap; font-size: 9px; letter-spacing: .14em; }
+  .hero-stats { gap: .85rem !important; justify-content: space-between; }
+  .hero-stats > div > p:first-child { font-size: 2rem !important; }
+  .hero-stats > div > p:last-child { font-size: 10px !important; }
   #events h2 { font-size: 2.55rem !important; }
   #events .mt-5.grid > div .group > button > div:first-child > div:first-child { max-height: none; }
   main > section:nth-of-type(4) { padding-top: 4rem !important; padding-bottom: 3rem !important; }
 }
 
+@media (min-width: 1024px) { .paper-grid .hero-title { max-width: 9.1ch; font-size: clamp(4.3rem, 5vw, 5.55rem); line-height: .91; } }
 @media (min-width: 1024px) {
-  .paper-grid h1::before, .paper-grid h1::after { font-size: clamp(4.3rem, 5vw, 5.55rem); line-height: .91; }
-}
-
-/* Final hero headline override—kept after responsive typography rules so legacy copy cannot reappear. */
-.paper-grid h1 { font-size: 0 !important; line-height: 1 !important; max-width: none !important; }
-.paper-grid h1 > span { display: none !important; }
-.paper-grid h1::before { content: "Your next\A"; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-ink); }
-.paper-grid h1::after { content: "good plan\Astarts here."; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-coral); }
-.dark .paper-grid h1::before { color: var(--foreground); }
-@media (min-width: 1024px) { .paper-grid h1::before, .paper-grid h1::after { font-size: clamp(4.3rem, 5vw, 5.55rem); line-height: .91; } }
-
-/* Keep the user-selected creative image clear: the feature title no longer collides with the editor’s note. */
-.paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { display: none !important; }
-@media (min-width: 1024px) {
-  .paper-grid .float-soft { left: -4.75rem !important; bottom: -1.1rem !important; }
+  .hero-editorial-card { left: -4.75rem !important; bottom: -1.1rem !important; }
 }
 
 /* Above-the-fold refinement: place the full hero story high in the first screen without clipping the activity figures. */

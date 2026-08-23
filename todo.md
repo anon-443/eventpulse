@@ -288,3 +288,9 @@
 - [x] Center the numbers, titles, and supporting copy within each how-it-works card at desktop and phone widths.
 - [x] Replace the duplicate Clay & Conversation event photograph with a distinct ceramics image while preserving the shared card crop.
 - [x] Validate the corrected card and image presentation, then publish to GitHub Pages.
+
+## Event Card Badge Removal and Header Visibility
+
+- [x] Remove all EP number badges from event cards.
+- [x] Increase navigation labels, account actions, and utility-icon sizing for clearer header visibility.
+- [x] Validate desktop and phone layouts, then publish to GitHub Pages.

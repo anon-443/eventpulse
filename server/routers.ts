@@ -19,7 +19,7 @@ export const appRouter = router({
     }),
   }),
   organizer: router({
-    generateDescription: publicProcedure.input(z.object({ keywords: z.string().trim().min(3).max(360), title: z.string().trim().max(120).optional(), venue: z.string().trim().max(120).optional(), date: z.string().trim().max(80).optional() })).mutation(async ({ input }) => {
+    generateDescription: publicProcedure.input(z.object({ keywords: z.string().trim().min(3).max(360), tone: z.enum(["professional", "casual", "exciting"]).default("professional"), title: z.string().trim().max(120).optional(), venue: z.string().trim().max(120).optional(), date: z.string().trim().max(80).optional() })).mutation(async ({ input }) => {
       const { data } = await listLLMModels();
       const model = data.find((candidate) => candidate.id === "gpt-5-mini")?.id ?? data.find((candidate) => candidate.id === "gpt-5-nano")?.id;
       if (!model) throw new Error("No text-generation model is available for the organizer assistant.");
@@ -27,7 +27,7 @@ export const appRouter = router({
         model,
         maxTokens: 260,
         messages: [
-          { role: "system", content: "You write polished, concrete event descriptions for the EventPulse platform. Produce one engaging 75-110 word paragraph in a warm editorial voice. Include only details supported by the organizer input. Do not invent performers, sponsors, endorsements, availability, accessibility claims, pricing, reviews, or logistical facts. Do not use markdown." },
+          { role: "system", content: `You write polished, concrete event descriptions for the EventPulse platform. Produce one engaging 75-110 word paragraph. Use a ${input.tone} tone: ${input.tone === "professional" ? "clear, polished, and confident" : input.tone === "casual" ? "warm, approachable, and conversational" : "vivid, energetic, and momentum-building"}. Include only details supported by the organizer input. Do not invent performers, sponsors, endorsements, availability, accessibility claims, pricing, reviews, or logistical facts. Do not use markdown.` },
           { role: "user", content: `Keywords: ${input.keywords}\nTitle: ${input.title || "Not yet named"}\nVenue: ${input.venue || "Not supplied"}\nDate and time: ${input.date || "Not supplied"}` },
         ],
         response_format: { type: "json_schema", json_schema: { name: "event_description", strict: true, schema: { type: "object", properties: { description: { type: "string", minLength: 60, maxLength: 900 } }, required: ["description"], additionalProperties: false } } },

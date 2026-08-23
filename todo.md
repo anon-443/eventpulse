@@ -33,3 +33,12 @@
 - [x] Add a visual notification-center dropdown that respects locally saved notification preferences.
 - [x] Verify the new organizer and navigation interactions and save the updated release.
 - [x] Save a new EventPulse checkpoint after the organizer preview, AI description assistant, notification center, and reusable skill are validated.
+
+## Tone, Alerts, and Wallet Extension
+
+- [x] Update and validate the reusable EventPulse workflow skill for tone-aware writing, alert management, and wallet-style ticket handoff.
+- [x] Add professional, casual, and exciting tone selection to the organizer AI description assistant.
+- [x] Add category filtering and mark-all-read behavior to the Notification Center.
+- [x] Add an Apple Wallet-style mock handoff from the ticket confirmation modal.
+- [x] Verify updated tests, build, and responsive interaction surfaces before release.
+- [x] Verify the tone selector, Notification Center controls, and Apple Wallet mock at mobile and tablet breakpoints, then save the updated release.

@@ -14,9 +14,9 @@ describe("organizer.generateDescription", () => {
     vi.mocked(invokeLLM).mockResolvedValue({ choices: [{ index: 0, finish_reason: "stop", message: { role: "assistant", content: JSON.stringify({ description: "An intimate late-night listening session with local musicians, warm conversation, and a room designed for lingering after the last note." }) } }] } as never);
     const caller = appRouter.createCaller({ user: null, req: {} as never, res: {} as never });
 
-    const result = await caller.organizer.generateDescription({ keywords: "intimate jazz, local musicians, warm cocktails", title: "After Hours", venue: "The Glasshouse" });
+    const result = await caller.organizer.generateDescription({ keywords: "intimate jazz, local musicians, warm cocktails", tone: "exciting", title: "After Hours", venue: "The Glasshouse" });
 
     expect(result.description).toContain("intimate late-night listening session");
-    expect(invokeLLM).toHaveBeenCalledWith(expect.objectContaining({ model: "gpt-5-mini" }));
+    expect(invokeLLM).toHaveBeenCalledWith(expect.objectContaining({ model: "gpt-5-mini", messages: expect.arrayContaining([expect.objectContaining({ content: expect.stringContaining("exciting tone") })]) }));
   });
 });

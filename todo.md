@@ -136,4 +136,4 @@
 - [x] Restore a preferred hero visual direction with a polished, portable event image treatment.
 - [x] Replace the oversized Listening Room countdown panel with a more intentional floating editorial feature card.
 - [x] Verify the refined hero composition across desktop, tablet, mobile, and GitHub Pages before release.
-- [ ] Publish the hero refinement to GitHub Pages and verify the live homepage renders the updated event visual and editorial feature card.
+- [x] Publish the hero refinement to GitHub Pages and visually verify the live homepage renders the compact layout, updated event visual, and editorial feature card.

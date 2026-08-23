@@ -136,6 +136,9 @@
   .paper-grid .float-soft > * { display: none !important; }
   .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Sunday on the Green\A Live sets · Local makers · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
   .paper-grid .float-soft::after { content: "A slow, sunlit festival for your Sunday."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
+  .dark .paper-grid { background-color: oklch(.18 .02 55); background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); }
+  .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { filter: saturate(.78) brightness(.68) contrast(1.08); }
+  .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(15,20,34,.12), rgba(21,71,165,.28)); pointer-events: none; }
   .stagger-in { animation: stagger-in .55s cubic-bezier(.23,1,.32,1) both; }
   .delay-1 { animation-delay: 70ms; } .delay-2 { animation-delay: 140ms; } .delay-3 { animation-delay: 210ms; } .delay-4 { animation-delay: 280ms; }
   @keyframes orbit { to { transform: rotate(360deg); } }

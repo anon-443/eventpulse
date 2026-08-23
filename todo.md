@@ -137,3 +137,10 @@
 - [x] Replace the oversized Listening Room countdown panel with a more intentional floating editorial feature card.
 - [x] Verify the refined hero composition across desktop, tablet, mobile, and GitHub Pages before release.
 - [x] Publish the hero refinement to GitHub Pages and visually verify the live homepage renders the compact layout, updated event visual, and editorial feature card.
+
+## Interactive Event Discovery Enhancement
+
+- [x] Add accessible event-card hover and keyboard-focus previews with concise event details.
+- [x] Add account-scoped favorite bookmarking controls on event cards with durable local persistence.
+- [x] Refine the navigation dark-mode control and create a theme-aware hero image treatment.
+- [x] Verify interactive cards, favorites, theme adaptation, responsive layouts, tests, and GitHub Pages build before release.

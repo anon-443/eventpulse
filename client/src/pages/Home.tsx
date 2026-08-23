@@ -12,7 +12,7 @@ import {
   Download,
   Facebook,
   Flame,
-  Heart,
+  Bookmark,
   Instagram,
   Mail,
   MapPin,
@@ -274,10 +274,24 @@ function FilterSelect({ label, value, options, onChange }: { label: string; valu
 }
 
 function EventCard({ event, onOpen, onBook, large = false }: { event: EventItem; onOpen: () => void; onBook: () => void; large?: boolean }) {
+  const favoritesKey = scopedKey("eventpulse-favorite-events-v1");
+  const [saved, setSaved] = useState(() => {
+    try { return (JSON.parse(localStorage.getItem(favoritesKey) ?? "[]") as number[]).includes(event.id); } catch { return false; }
+  });
+  const toggleFavorite = () => {
+    const next = !saved;
+    setSaved(next);
+    try {
+      const current = JSON.parse(localStorage.getItem(favoritesKey) ?? "[]") as number[];
+      const updated = next ? Array.from(new Set([...current, event.id])) : current.filter((id) => id !== event.id);
+      localStorage.setItem(favoritesKey, JSON.stringify(updated));
+    } catch { /* The bookmark remains available for this session if storage is unavailable. */ }
+    toast.success(next ? "Saved to your favorites" : "Removed from favorites");
+  };
   return (
     <motion.article layout className="ticket-notch group relative overflow-hidden rounded-[1.4rem] border border-border bg-card shadow-[0_16px_50px_rgba(37,36,31,.055)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,36,31,.12)]">
       <button onClick={onOpen} className="focus-ring block w-full text-left" aria-label={`View details for ${event.title}`}>
-        <EventImage event={event} className={large ? "aspect-[1.75/1]" : "aspect-[1.35/1]"} />
+        <div className="relative overflow-hidden"><EventImage event={event} className={large ? "aspect-[1.75/1]" : "aspect-[1.35/1]"} /><div className="pointer-events-none absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl border border-white/15 bg-[rgba(25,31,45,.88)] px-3 py-3 text-white opacity-0 shadow-xl backdrop-blur-md transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"><div className="flex items-center justify-between gap-3 text-[10px] font-bold uppercase tracking-[.13em] text-white/68"><span>{event.type}</span><span>{event.month} {event.dateShort.split(" ")[0]}</span></div><p className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold"><MapPin size={13} className="text-[var(--pulse-sun)]" /> {event.venue}</p><p className="mt-1 text-[11px] text-white/70">{event.time} · {event.attendees} planning to go</p></div></div>
         <div className="p-5 pb-4">
           <div className="mb-4 flex items-start justify-between gap-4">
             <div className="flex items-start gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--pulse-coral)]"><CalendarDays size={14} /><span><span className="block">{event.dateShort}</span><span className="mt-1 block text-[10px] font-medium tracking-[.06em] text-muted-foreground">{event.time}</span></span></div><span className="rounded-full border border-[rgba(240,90,71,.22)] bg-[rgba(240,90,71,.06)] px-2 py-1 text-[9px] font-bold uppercase tracking-[.13em] text-[var(--pulse-coral)]">EP · {String(event.id).padStart(2, "0")}</span>
@@ -286,7 +300,7 @@ function EventCard({ event, onOpen, onBook, large = false }: { event: EventItem;
           <p className="mt-3 line-clamp-2 text-sm leading-6 text-muted-foreground">{event.description}</p>
         </div>
       </button>
-      <button onClick={() => toast.success("Saved to your shortlist")} className="focus-ring absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-[var(--pulse-ink)] shadow-sm backdrop-blur transition hover:bg-white hover:text-[var(--pulse-coral)]" aria-label={`Save ${event.title}`}><Heart size={16} /></button>
+      <button onClick={toggleFavorite} className={`focus-ring absolute right-4 top-4 z-10 rounded-full p-2.5 shadow-sm backdrop-blur transition ${saved ? "bg-[var(--pulse-coral)] text-white" : "bg-white/90 text-[var(--pulse-ink)] hover:bg-white hover:text-[var(--pulse-coral)]"}`} aria-label={saved ? `Remove ${event.title} from favorites` : `Save ${event.title} to favorites`} aria-pressed={saved}><Bookmark size={16} fill={saved ? "currentColor" : "none"} /></button>
       <div className="ticket-dashes mx-5 flex items-center justify-between py-4 text-xs text-border">
         <div className="flex min-w-0 items-center gap-2 text-muted-foreground"><MapPin size={14} className="shrink-0 text-[var(--pulse-cobalt)]" /><span className="truncate">{event.location}</span></div>
         <span className="shrink-0 pl-3 font-bold text-card-foreground">from ${event.price}</span>

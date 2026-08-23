@@ -111,3 +111,16 @@
 - [x] Review the current build, routes, and server-backed features for GitHub Pages compatibility.
 - [x] Add a GitHub Pages build and deployment workflow for `anon-443.github.io/eventpulse`.
 - [x] Document static-hosting limitations and verify the Pages deployment URL.
+
+## Error Notification Repair
+
+- [x] Identify the reported red indicator as a stale development-preview error state left by an earlier resolved import failure.
+- [x] Restart the development service so the current valid build clears the stale preview notification.
+- [x] Verify the repaired local preview and live GitHub Pages build render without a current runtime error.
+- [x] Test the hero action visible behind the report and confirm no red indicator, active error toast, or runtime error is present after restart.
+- [x] Verify the same local preview path remains clear after the service restart and record that no matching current runtime error is present.
+
+## Latest GitHub Publication
+
+- [x] Commit and push the current verified EventPulse changes to `anon-443/eventpulse`.
+- [x] Verify the public repository reflects the published commit.

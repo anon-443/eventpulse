@@ -273,6 +273,10 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   #events > div:first-child { display: block !important; }
 }
 
+/* Keep the three how-it-works stories vertically centered as complete, balanced card compositions. */
+#how-it-works .stagger-in { display: flex; min-height: 275px; flex-direction: column; justify-content: center; }
+#how-it-works .stagger-in h3 { margin-top: 1.35rem !important; }
+
 /* Lift the full hero story together, beginning at the eyebrow, rather than moving isolated lines. */
 @media (min-width: 1024px) {
   .paper-grid > .container > .hero-copy { margin-top: -1rem !important; }

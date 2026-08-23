@@ -282,3 +282,9 @@
 
 - [x] Move the hero eyebrow, headline, supporting copy, CTAs, and statistics upward toward the navigation while preserving their readable spacing.
 - [x] Verify the elevated hero composition at desktop and phone widths, then publish to GitHub Pages.
+
+## How-it-Works Card Balance and Image Variety
+
+- [x] Center the numbers, titles, and supporting copy within each how-it-works card at desktop and phone widths.
+- [x] Replace the duplicate Clay & Conversation event photograph with a distinct ceramics image while preserving the shared card crop.
+- [x] Validate the corrected card and image presentation, then publish to GitHub Pages.

@@ -225,4 +225,4 @@
 
 - [x] Use the selected daytime creative image in the homepage feature visual.
 - [x] Remove the overlapping feature-title treatment and reposition the editorial card for clear, non-colliding content.
-- [ ] Publish the validated corrected homepage feature to GitHub Pages.
+- [x] Publish the validated corrected homepage feature to GitHub Pages.

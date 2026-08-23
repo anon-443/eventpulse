@@ -102,6 +102,6 @@
 
 ## Public Repository Sanitization
 
-- [ ] Audit all tracked files and reachable Git history for secrets, personal data, local artifacts, and credentials.
-- [ ] Remove or exclude any sensitive material found before changing GitHub repository visibility.
-- [ ] Validate the sanitized codebase and publish `anon-443/eventpulse` as a public repository.
+- [x] Audit all tracked files and reachable Git history for secrets, personal data, local artifacts, and credentials.
+- [x] Remove or exclude any sensitive material found before changing GitHub repository visibility.
+- [x] Validate the sanitized codebase and publish `anon-443/eventpulse` as a public repository.

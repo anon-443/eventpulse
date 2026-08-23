@@ -2,11 +2,12 @@
 import { Check, Columns2, Download, GitMerge, History, RotateCcw, Tag, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "wouter";
+import { scopedKey } from "@/lib/localIdentity";
 
 export type AIDescriptionRecord = { id: string; description: string; tone: "professional" | "casual" | "exciting"; keywords: string; createdAt: string; name?: string; tags?: string[] };
 export const AI_HISTORY_KEY = "eventpulse-ai-description-history-v1";
 export const AI_RESTORE_KEY = "eventpulse-pending-ai-restore-v1";
-const readHistory = (): AIDescriptionRecord[] => { try { return JSON.parse(localStorage.getItem(AI_HISTORY_KEY) ?? "[]"); } catch { return []; } };
+const readHistory = (): AIDescriptionRecord[] => { try { return JSON.parse(localStorage.getItem(scopedKey(AI_HISTORY_KEY)) ?? "[]"); } catch { return []; } };
 const splitSentences = (value: string) => value.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((part) => part.trim()).filter(Boolean) ?? [value];
 const titleOf = (entry: AIDescriptionRecord) => entry.name || `${entry.tone} direction`;
 
@@ -23,8 +24,8 @@ export default function AIDescriptionHistoryDock() {
   const comparison = useMemo(() => history.find((entry) => entry.id === compareId) ?? history.find((entry) => entry.id !== selected?.id), [history, compareId, selected]);
   const leadParts = selected ? splitSentences(selected.description) : [], contributionParts = comparison ? splitSentences(comparison.description) : [];
   useEffect(() => { setLeadSelected(leadParts.map((_, i) => i === 0 ? i : -1).filter((i) => i >= 0)); setContributionSelected(contributionParts.map((_, i) => i > 0 ? i : -1).filter((i) => i >= 0)); setMergeOpen(false); }, [selected?.id, comparison?.id]);
-  const persist = (next: AIDescriptionRecord[]) => { setHistory(next); localStorage.setItem(AI_HISTORY_KEY, JSON.stringify(next)); window.dispatchEvent(new Event("eventpulse:ai-history-updated")); };
-  const restore = (entry: AIDescriptionRecord) => { localStorage.setItem(AI_RESTORE_KEY, JSON.stringify(entry)); window.dispatchEvent(new Event("eventpulse:open-description-draft")); setOpen(false); };
+  const persist = (next: AIDescriptionRecord[]) => { setHistory(next); localStorage.setItem(scopedKey(AI_HISTORY_KEY), JSON.stringify(next)); window.dispatchEvent(new Event("eventpulse:ai-history-updated")); };
+  const restore = (entry: AIDescriptionRecord) => { localStorage.setItem(scopedKey(AI_RESTORE_KEY), JSON.stringify(entry)); window.dispatchEvent(new Event("eventpulse:open-description-draft")); setOpen(false); };
   const updateMeta = (patch: Partial<AIDescriptionRecord>) => { if (!selected) return; persist(history.map((entry) => entry.id === selected.id ? { ...entry, ...patch } : entry)); };
   const exportDraft = (entry: AIDescriptionRecord) => { const body = `${titleOf(entry)}\n${(entry.tags ?? []).join(", ")}\n\n${entry.description}\n\nPrompt: ${entry.keywords}`; const href = URL.createObjectURL(new Blob([body], { type: "text/plain" })); const anchor = document.createElement("a"); anchor.href = href; anchor.download = `${titleOf(entry).toLowerCase().replace(/[^a-z0-9]+/g, "-") || "eventpulse-draft"}.txt`; anchor.click(); URL.revokeObjectURL(href); };
   const toggle = (index: number, source: "lead" | "contribution") => (source === "lead" ? setLeadSelected : setContributionSelected)((current) => current.includes(index) ? current.filter((value) => value !== index) : [...current, index]);

@@ -71,3 +71,10 @@
 - [x] Verify interactions, responsive layouts, tests, and production build before release.
 - [x] Verify the draft-library metadata/export controls, referral trend chart, and wallet sort/filter UI at mobile and tablet breakpoints, then save a validated checkpoint.
 - [x] Save a validated EventPulse checkpoint for the draft-library, referral-trend, and wallet-organization extension.
+
+## User-Scoped Analytics and Ticket Management Extension
+
+- [x] Add date-range selection and CSV export for locally recorded Referral Insights.
+- [x] Add wallet-pass search and calendar-based expiry filters with durable local preferences.
+- [x] Scope organizer draft metadata, referral events, wallet passes, and preferences to the active account-preview identity.
+- [x] Verify exports, scoped persistence, responsive controls, tests, and production build before release.

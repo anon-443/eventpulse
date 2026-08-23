@@ -144,3 +144,18 @@
 - [x] Add account-scoped favorite bookmarking controls on event cards with durable local persistence.
 - [x] Refine the navigation dark-mode control and create a theme-aware hero image treatment.
 - [x] Verify interactive cards, favorites, theme adaptation, responsive layouts, tests, and GitHub Pages build before release.
+
+## Event Motion and Calendar Export
+
+- [x] Add a smooth, reduced-motion-aware image zoom effect to interactive event cards.
+- [x] Add a standards-based calendar file export for locally saved favorite events.
+- [x] Verify calendar downloads, responsive interactions, tests, and GitHub Pages build before release.
+
+## Aesthetic Hero Visual Refresh
+
+- [x] Replace the current confetti hero image with a calmer aesthetic festival visual.
+- [x] Preserve hero-card readability, dark-mode treatment, responsive composition, and GitHub Pages compatibility.
+- [x] Verify the calendar action and card layout at mobile and tablet breakpoints after the latest update.
+- [x] Reconfirm the navigation theme toggle applies dark mode and the refreshed hero treatment remains readable.
+- [ ] Verify the refreshed aesthetic hero visual on the live GitHub Pages site before release.
+- [x] Visually confirm the dark-mode hero image, overlay, and editorial card remain readable after the final visual refresh.

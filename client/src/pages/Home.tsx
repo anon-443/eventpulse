@@ -253,12 +253,32 @@ function SectionEyebrow({ children, tone = "coral" }: { children: React.ReactNod
 function EventImage({ event, className = "" }: { event: EventItem; className?: string }) {
   return (
     <div className={`relative overflow-hidden bg-[var(--pulse-sand)] ${className}`}>
-      <img src={event.image} alt={event.title} className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.035]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-70" />
+      <img src={event.image} alt={event.title} className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(.23,1,.32,1)] motion-reduce:transition-none group-hover:scale-[1.075] group-focus-within:scale-[1.075]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90 group-focus-within:opacity-90 motion-reduce:transition-none" />
       {event.hot && <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-[var(--pulse-coral)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-[0_4px_14px_rgba(240,90,71,.28)]"><Flame size={12} fill="currentColor" /> Hot pick</span>}
       <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--pulse-ink)] backdrop-blur">{event.category}</span>
     </div>
   );
+}
+
+function exportEventCalendar(event: EventItem) {
+  const clean = (value: string) => value.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
+  const [startText, endText] = event.time.split("—").map((value) => value.trim());
+  const start = new Date(`${event.date} ${startText}`);
+  const fallbackEnd = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+  const parsedEnd = endText ? new Date(`${event.date} ${endText}`) : fallbackEnd;
+  const end = Number.isNaN(parsedEnd.getTime()) ? fallbackEnd : parsedEnd;
+  const stamp = (date: Date) => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//EventPulse//Event Calendar//EN", "CALSCALE:GREGORIAN", "BEGIN:VEVENT", `UID:eventpulse-${event.id}@eventpulse`, `DTSTAMP:${stamp(new Date())}`, `DTSTART:${stamp(start)}`, `DTEND:${stamp(end)}`, `SUMMARY:${clean(event.title)}`, `LOCATION:${clean(`${event.venue}, ${event.location}`)}`, `DESCRIPTION:${clean(event.description)}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `${event.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.ics`;
+  document.body.appendChild(link);
+  link.click();
+  window.setTimeout(() => { link.remove(); URL.revokeObjectURL(url); }, 0);
+  toast.success("Calendar file downloaded.");
 }
 
 function FilterSelect({ label, value, options, onChange }: { label: string; value: string; options: string[]; onChange: (value: string) => void }) {
@@ -305,9 +325,9 @@ function EventCard({ event, onOpen, onBook, large = false }: { event: EventItem;
         <div className="flex min-w-0 items-center gap-2 text-muted-foreground"><MapPin size={14} className="shrink-0 text-[var(--pulse-cobalt)]" /><span className="truncate">{event.location}</span></div>
         <span className="shrink-0 pl-3 font-bold text-card-foreground">from ${event.price}</span>
       </div>
-      <div className="flex items-center justify-between px-5 pb-5">
+      <div className="flex items-center justify-between gap-3 px-5 pb-5">
         <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Users size={14} /> {event.attendees}</span>
-        <button onClick={onBook} className="button-press focus-ring inline-flex items-center gap-2 rounded-full bg-[var(--pulse-coral)] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[var(--pulse-coral-dark)]">Book ticket <ArrowRight size={14} /></button>
+        <div className="flex items-center gap-2">{saved && <button onClick={() => exportEventCalendar(event)} className="button-press focus-ring inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-[var(--pulse-cobalt)] transition hover:border-[var(--pulse-cobalt)] hover:bg-[rgba(21,71,165,.07)]" aria-label={`Add ${event.title} to calendar`} title="Add to calendar"><CalendarDays size={15} /></button>}<button onClick={onBook} className="button-press focus-ring inline-flex items-center gap-2 rounded-full bg-[var(--pulse-coral)] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[var(--pulse-coral-dark)]">Book ticket <ArrowRight size={14} /></button></div>
       </div>
     </motion.article>
   );

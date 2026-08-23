@@ -2,7 +2,7 @@
 
 > **Discover what moves you.** EventPulse is a responsive event-discovery and booking experience designed around a warm, editorial festival identity.
 
-[Live website](https://anon-443.github.io/eventpulse/) · [Source code](https://github.com/anon-443/eventpulse) · [Report an issue](https://github.com/anon-443/eventpulse/issues)
+[Live website](https://anon-443.github.io/eventpulse/) · [Source code](https://github.com/anon-443/eventpulse) · [Report an issue](https://github.com/anon-443/eventpulse/issues) · [Deployment workflow](https://github.com/anon-443/eventpulse/actions/workflows/deploy-pages.yml)
 
 ## Overview
 
@@ -48,11 +48,27 @@ Install a current LTS release of Node.js and use [pnpm](https://pnpm.io/). The p
 ```bash
 git clone https://github.com/anon-443/eventpulse.git
 cd eventpulse
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
 The local app will start on the port assigned by the development environment. Open the address shown in your terminal.
+
+### First local run
+
+After the server starts, open the printed local URL and use the main navigation to move between **Explore events**, **Organizer hub**, and **Account**. No environment file is required to view the browser interface and its locally stored demonstration flows. Server-backed functionality uses the managed application configuration when it is available.
+
+## Usage guide
+
+| Goal | How to use it |
+| --- | --- |
+| Find an event | Use the homepage search field, date/price/type selectors, and category chips to narrow the event edit. |
+| Review an event | Select an event card to open its concise detail preview, then use **Book ticket** to enter the demonstration booking flow. |
+| Save and schedule | Use the bookmark control on an event card. Saved events show an **Add to Calendar** action that downloads a standard `.ics` file. |
+| Use tickets and profile tools | Open **Account** to view locally stored passes, notification choices, referral insights, wallet filters, and rewards demonstrations. |
+| Manage events | Open **Organizer hub** to work with drafts, preview event content, and explore the organizer-facing ticket customization interface. |
+
+> The payment flow, Apple Wallet handoff, transfers, rewards, validation, and account records are clearly labelled demonstrations. They do not process payments, issue production tickets, or validate venue entry.
 
 ### Useful commands
 
@@ -64,11 +80,26 @@ The local app will start on the port assigned by the development environment. Op
 | `pnpm build` | Builds the client and server bundles for the managed full-stack deployment |
 | `pnpm build:pages` | Builds the static GitHub Pages site under the `/eventpulse/` base path |
 
-## GitHub Pages deployment
+## GitHub Actions and Pages deployment
 
-The repository deploys to GitHub Pages through [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml). The workflow runs whenever `main` is updated and builds the project using the `/eventpulse/` base path.
+Deployment is automated by the GitHub Actions workflow at [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml). It runs automatically on every push to `main`, installs the pinned dependencies, runs `pnpm build:pages`, uploads `dist/public`, and deploys the result to GitHub Pages. It can also be started manually from the repository’s **Actions** tab using **Run workflow**.
 
 To maintain the live site, keep **Settings → Pages → Build and deployment → Source** set to **GitHub Actions**. Static deep links are supported through the included `404.html` client-router fallback.
+
+### Publish a change
+
+Run the quality checks locally, commit the change, and push to `main`:
+
+```bash
+pnpm test
+pnpm check
+pnpm build:pages
+git add .
+git commit -m "Describe your change"
+git push origin main
+```
+
+GitHub Actions will publish the new static build to [the live site](https://anon-443.github.io/eventpulse/). Check the [workflow history](https://github.com/anon-443/eventpulse/actions/workflows/deploy-pages.yml) if a deployment needs troubleshooting.
 
 ## Static-site limitations
 

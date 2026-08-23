@@ -159,3 +159,13 @@
 - [x] Reconfirm the navigation theme toggle applies dark mode and the refreshed hero treatment remains readable.
 - [x] Verify the refreshed aesthetic hero visual on the live GitHub Pages site before release.
 - [x] Visually confirm the dark-mode hero image, overlay, and editorial card remain readable after the final visual refresh.
+
+## GitHub Repository Metadata
+
+- [x] Add a clear public description and live GitHub Pages website URL to the EventPulse repository About section.
+
+## GitHub Documentation and Discoverability
+
+- [x] Add clear local installation, development, validation, and GitHub Pages usage instructions to README.md.
+- [ ] Verify the GitHub Actions Pages deployment workflow is present, current, and automatically runs on main-branch pushes.
+- [x] Add relevant public repository topics for event discovery, booking, React, TypeScript, Tailwind CSS, and GitHub Pages.

@@ -213,3 +213,10 @@
 - [x] Reduce the desktop grid gap and reposition the hero image and editorial feature card closer to the copy block.
 - [x] Preserve the clearer hero typography while removing the empty middle area at widescreen desktop sizes.
 - [x] Publish the validated tightened hero layout to GitHub Pages.
+
+## Inclusive Hero Visual and Messaging Refresh
+
+- [x] Replace the banquet-room hero visual with an aesthetic daytime-friendly community or creative-event image.
+- [x] Replace “Your next good night starts here.” with messaging that suits daytime, evening, and hybrid events.
+- [x] Align the supporting hero and editorial-card copy with the refreshed all-hours event positioning.
+- [ ] Publish the validated revised hero to GitHub Pages.

@@ -130,14 +130,14 @@
   .paper-grid > .container { min-height: 520px !important; padding-block: 2.5rem !important; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) { isolation: isolate; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > img { opacity: 0; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { content: ""; position: absolute; inset: 0; z-index: 0; background: url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=86") center / cover no-repeat; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div { z-index: 1; }
   .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child { font-size: 0 !important; }
-  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child::after { content: "Sunday Garden Studio"; font-size: 1.875rem; font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1; }
+  .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"]) > div > p:last-child::after { content: "Open Studio Day"; font-size: 1.875rem; font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1; }
   .paper-grid .float-soft { bottom: 1.15rem !important; left: -2.2rem !important; width: 236px !important; min-height: 126px; padding: 1rem 1.1rem !important; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(28,25,23,.97), rgba(47,43,40,.94)) !important; box-shadow: 0 22px 44px rgba(20,20,18,.24) !important; }
   .paper-grid .float-soft > * { display: none !important; }
-  .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Sunday Garden Studio\A quiet morning outdoors · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
-  .paper-grid .float-soft::after { content: "A restorative day for planting and making."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
+  .paper-grid .float-soft::before { content: "EDITOR’S PICK\A Open Studio Day\A creative daytime session · 17 Nov"; display: block; white-space: pre-line; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 700; line-height: 1.4; letter-spacing: .15em; color: rgba(255,255,255,.62); }
+  .paper-grid .float-soft::after { content: "Make, meet, and leave with fresh ideas."; display: block; margin-top: .55rem; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.1; letter-spacing: -.025em; color: white; }
   .dark .paper-grid { background-color: oklch(.18 .02 55); background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); }
   .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::before { filter: saturate(.78) brightness(.68) contrast(1.08); }
   .dark .paper-grid div:has(> img[alt="People gathering at a sunlit outdoor event"])::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(135deg, rgba(15,15,14,.16), rgba(28,25,23,.3)); pointer-events: none; }
@@ -173,6 +173,12 @@
 [class*="border-[rgba(21,71,165"] { border-color: rgba(28, 25, 23, .24) !important; }
 [class*="shadow-[0_7px_16px_rgba(21,71,165"] { box-shadow: 0 7px 16px rgba(28, 25, 23, .16) !important; }
 div[style*="21,71,165"] { border-color: rgba(28, 25, 23, .2) !important; }
+
+/* All-hours event language: the headline now works for daytime, evening, and hybrid plans. */
+.paper-grid h1 { font-size: 0 !important; line-height: 1 !important; }
+.paper-grid h1::before { content: "Your next\A"; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-ink); }
+.paper-grid h1::after { content: "good plan\Astarts here."; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-coral); }
+.dark .paper-grid h1::before { color: var(--foreground); }
 
 /* Compact editorial hero */
 .paper-grid h1 { max-width: 8.6ch; font-size: clamp(3.35rem, 4.2vw, 4.7rem) !important; line-height: .9 !important; letter-spacing: -.065em !important; }
@@ -224,3 +230,15 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   #events .mt-5.grid > div .group > button > div:first-child > div:first-child { max-height: none; }
   main > section:nth-of-type(4) { padding-top: 4rem !important; padding-bottom: 3rem !important; }
 }
+
+@media (min-width: 1024px) {
+  .paper-grid h1::before, .paper-grid h1::after { font-size: clamp(4.3rem, 5vw, 5.55rem); line-height: .91; }
+}
+
+/* Final hero headline override—kept after responsive typography rules so legacy copy cannot reappear. */
+.paper-grid h1 { font-size: 0 !important; line-height: 1 !important; max-width: none !important; }
+.paper-grid h1 > span { display: none !important; }
+.paper-grid h1::before { content: "Your next\A"; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-ink); }
+.paper-grid h1::after { content: "good plan\Astarts here."; display: block; white-space: pre; font-family: "Fraunces", Georgia, serif; font-size: clamp(3.35rem, 4.2vw, 4.7rem); font-weight: 600; line-height: .9; letter-spacing: -.065em; color: var(--pulse-coral); }
+.dark .paper-grid h1::before { color: var(--foreground); }
+@media (min-width: 1024px) { .paper-grid h1::before, .paper-grid h1::after { font-size: clamp(4.3rem, 5vw, 5.55rem); line-height: .91; } }

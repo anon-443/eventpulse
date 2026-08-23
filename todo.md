@@ -232,4 +232,4 @@
 - [x] Use the user-selected museum image as the homepage feature visual.
 - [x] Move the eyebrow, headline, supporting copy, CTAs, feature image, and editorial card higher to remove excess space above the hero content.
 - [x] Keep the 10k+, 500+, and 42 statistics visible in the first screen at desktop width without clipping.
-- [ ] Publish the validated above-the-fold composition to GitHub Pages.
+- [x] Publish the validated above-the-fold composition to GitHub Pages.

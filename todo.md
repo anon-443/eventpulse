@@ -252,3 +252,11 @@
 - [x] Keep concise labels, metadata, and actions on one line where feasible without reducing legibility or causing overflow.
 - [x] Remove unnecessary terminal periods from short labels, headlines, and UI sentences while retaining punctuation where it improves meaning.
 - [x] Verify the refreshed text system at desktop, tablet, and mobile widths, then publish to GitHub Pages.
+
+## Hero and Discovery Layout Correction
+
+- [x] Remove or replace overlapping dotted ticket dividers in event-card metadata rows.
+- [x] Separate the desktop hero editorial card from the museum feature-image title area.
+- [x] Move the hero eyebrow, headline, supporting copy, CTAs, and statistics higher as one balanced composition.
+- [x] Recompose the event-discovery heading and supporting copy to remove excessive horizontal empty space.
+- [x] Recheck animation behavior and optimize the affected layouts for phones before publishing.

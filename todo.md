@@ -94,3 +94,8 @@
 - [x] Add an account-scoped Rewards profile tab for mock attendance and referral loyalty points.
 - [x] Verify transfer, customization, rewards persistence, responsive layouts, tests, and production build before release.
 - [x] Persist mock attendance-reward history under the active local account and re-verify organizer branding reaches the wallet pass after navigation.
+
+## Source Export and Custom Domain Handoff
+
+- [ ] Export the EventPulse source to the user's GitHub account as the eventpulse repository.
+- [ ] Confirm the user's intended custom domain and provide the required DNS configuration steps.

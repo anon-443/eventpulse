@@ -167,5 +167,5 @@
 ## GitHub Documentation and Discoverability
 
 - [x] Add clear local installation, development, validation, and GitHub Pages usage instructions to README.md.
-- [ ] Verify the GitHub Actions Pages deployment workflow is present, current, and automatically runs on main-branch pushes.
+- [x] Verify the GitHub Actions Pages deployment workflow is present, current, and automatically runs on main-branch pushes.
 - [x] Add relevant public repository topics for event discovery, booking, React, TypeScript, Tailwind CSS, and GitHub Pages.

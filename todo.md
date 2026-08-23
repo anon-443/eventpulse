@@ -212,4 +212,4 @@
 
 - [x] Reduce the desktop grid gap and reposition the hero image and editorial feature card closer to the copy block.
 - [x] Preserve the clearer hero typography while removing the empty middle area at widescreen desktop sizes.
-- [ ] Publish the validated tightened hero layout to GitHub Pages.
+- [x] Publish the validated tightened hero layout to GitHub Pages.

@@ -260,3 +260,10 @@
 - [x] Move the hero eyebrow, headline, supporting copy, CTAs, and statistics higher as one balanced composition.
 - [x] Recompose the event-discovery heading and supporting copy to remove excessive horizontal empty space.
 - [x] Recheck animation behavior and optimize the affected layouts for phones before publishing.
+
+## Hero Overlay and Text Alignment Refinement
+
+- [x] Remove the feature-title overlay text from the museum hero image.
+- [x] Keep the discovery supporting sentence complete and on one line at desktop width.
+- [x] Improve paragraph widths, line breaks, and alignment in the EventPulse way and discovery sections.
+- [x] Validate responsive text formatting and publish the refinement to GitHub Pages.

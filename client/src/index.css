@@ -242,22 +242,25 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
 #events .ticket-dashes { background-image: none !important; }
 
 @media (min-width: 768px) {
-  #events > div:first-child { justify-content: flex-start !important; align-items: baseline !important; gap: 2.5rem !important; }
-  #events h2 { white-space: nowrap; }
+  #events > div:first-child { justify-content: flex-start !important; align-items: center !important; gap: 2rem !important; }
+  #events h2 { white-space: nowrap; font-size: clamp(2.35rem, 3.55vw, 2.6rem) !important; }
   #events h2 br { display: none; }
   #events h2 span::before { content: " "; }
-  #events > div:first-child > p { max-width: 31rem !important; }
+  #events > div:first-child > p { max-width: none !important; flex: 1 0 auto; white-space: nowrap; font-size: 14px !important; }
+  #how-it-works > .container > div > div:first-child > p, #how-it-works .stagger-in p { text-align: justify; text-align-last: left; hyphens: auto; }
 }
 
 @media (min-width: 1024px) {
   .paper-grid > .container { padding-top: .65rem !important; }
   .paper-grid > .container > .hero-copy { margin-top: -.25rem !important; }
   .hero-editorial-card { left: -10.25rem !important; bottom: 1.5rem !important; }
-  .hero-feature .absolute.bottom-6 { left: 2.25rem !important; }
+  .hero-feature .absolute.bottom-6 { display: none !important; }
+  .paper-grid .hero-subtitle { max-width: 34rem !important; }
 }
 
 @media (max-width: 639px) {
   .hero-orbit, .sun-drift, .float-soft { animation: none !important; }
   .stagger-in { animation-duration: .35s; }
   #events > div:first-child > p { max-width: 28rem !important; }
+  #how-it-works p { text-align: left; }
 }

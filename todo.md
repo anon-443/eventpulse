@@ -272,3 +272,13 @@
 
 - [x] Align the discovery heading and supporting sentence directly opposite each other with an even desktop gap and shared visual baseline.
 - [x] Preserve a natural stacked layout on mobile, then validate and publish the alignment refinement.
+
+## Discovery Header Simplification
+
+- [x] Remove the discovery supporting sentence and keep a clean single-heading composition at every breakpoint.
+- [x] Validate the simplified header and publish the correction to GitHub Pages.
+
+## Hero Stack Elevation Follow-up
+
+- [x] Move the hero eyebrow, headline, supporting copy, CTAs, and statistics upward toward the navigation while preserving their readable spacing.
+- [x] Verify the elevated hero composition at desktop and phone widths, then publish to GitHub Pages.

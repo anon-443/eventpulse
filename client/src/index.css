@@ -266,3 +266,18 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   #events > div:first-child > p { max-width: 28rem !important; }
   #how-it-works p { text-align: left; }
 }
+
+/* The discovery heading stands on its own, without a competing support line. */
+#events > div:first-child > p { display: none !important; }
+@media (min-width: 1024px) {
+  #events > div:first-child { display: block !important; }
+}
+
+/* Lift the full hero story together, beginning at the eyebrow, rather than moving isolated lines. */
+@media (min-width: 1024px) {
+  .paper-grid > .container > .hero-copy { margin-top: -1rem !important; }
+}
+@media (max-width: 1023px) {
+  .paper-grid > .container { padding-top: .45rem !important; }
+  .paper-grid > .container > .hero-copy { margin-top: -1.4rem !important; }
+}

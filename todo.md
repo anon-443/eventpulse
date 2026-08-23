@@ -62,3 +62,12 @@
 - [x] Verify persistence behaviors, tests, responsive layouts, and production build before release.
 - [x] Replace fixed AI-description splicing with an organizer-controlled merge composer that lets users choose content from each version.
 - [x] Exercise and verify referral tracking, AI merge composition, and wallet persistence behavior before saving the release.
+
+## Draft Library, Referral Trends, and Wallet Organization Extension
+
+- [x] Add editable names, tags, and export actions to merged AI description versions.
+- [x] Add visual referral activity and click-trend charts based on locally recorded referral data.
+- [x] Add wallet-pass filtering and sorting controls with locally retained preferences.
+- [x] Verify interactions, responsive layouts, tests, and production build before release.
+- [x] Verify the draft-library metadata/export controls, referral trend chart, and wallet sort/filter UI at mobile and tablet breakpoints, then save a validated checkpoint.
+- [x] Save a validated EventPulse checkpoint for the draft-library, referral-trend, and wallet-organization extension.

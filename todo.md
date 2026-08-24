@@ -294,3 +294,15 @@
 - [x] Remove all EP number badges from event cards.
 - [x] Increase navigation labels, account actions, and utility-icon sizing for clearer header visibility.
 - [x] Validate desktop and phone layouts, then publish to GitHub Pages.
+
+## Final Release Pass
+
+- [x] Add a mobile filter drawer with event type, date, and price controls that apply to the homepage event grid.
+- [x] Add a compact/comfortable event-card density control that works at desktop and phone widths.
+- [x] Add a persistent reduced-motion preference that disables nonessential decorative and entrance motion.
+- [x] Audit Home, Profile, Organizer Hub, ticket flows, shared dialogs, and navigation for unintended gaps, wrapping, punctuation, and text alignment.
+- [x] Make concise labels remain on one line where space allows, preserve readable paragraphs, and correct inconsistent formatting.
+- [x] Review the animation system for responsive and reduced-motion behavior.
+- [x] Update README with final feature overview, local setup, GitHub Pages usage, and clear demo-only disclaimers.
+- [x] Update the GitHub repository description and topics for the final public release.
+- [x] Run tests, type checks, production build, and multi-viewport visual verification before publishing.

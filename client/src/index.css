@@ -291,8 +291,27 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
 /* Lift the full hero story together, beginning at the eyebrow, rather than moving isolated lines. */
 @media (min-width: 1024px) {
   .paper-grid > .container > .hero-copy { margin-top: -1rem !important; }
+  .paper-grid .hero-subtitle { max-width: none !important; white-space: nowrap; font-size: 1rem !important; letter-spacing: -.01em; }
 }
 @media (max-width: 1023px) {
   .paper-grid > .container { padding-top: .45rem !important; }
   .paper-grid > .container > .hero-copy { margin-top: -1.4rem !important; }
+}
+
+/* Final accessibility and density pass: preference-driven motion and compact cards stay readable at every width. */
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+.reduce-motion .hero-orbit, .reduce-motion .sun-drift, .reduce-motion .float-soft { animation: none !important; }
+#events .grid[class*="lg:grid-cols-4"] .group h3 { font-size: 1.12rem !important; line-height: 1.06 !important; }
+#events .grid[class*="lg:grid-cols-4"] .group h3 + p { font-size: 12px !important; line-height: 1.45 !important; }
+#events .grid[class*="lg:grid-cols-4"] .group > button > div:nth-child(2) { padding: .85rem !important; }
+#events .grid[class*="lg:grid-cols-4"] .group > div:last-child { padding: 0 .85rem .85rem !important; }
+#events .grid[class*="lg:grid-cols-4"] .group .ticket-dashes { margin-inline: .85rem !important; padding-block: .7rem !important; }
+@media (max-width: 639px) {
+  #events { padding-top: 3.25rem !important; padding-bottom: 3.75rem !important; }
+  #events .grid[class*="sm:grid-cols-3"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #events .grid[class*="sm:grid-cols-3"] .group > button > div:first-child { display: none; }
+  #events .grid[class*="sm:grid-cols-3"] .group > button > div:nth-child(2) { min-height: 128px; }
+  #events .grid[class*="sm:grid-cols-3"] .group > div:last-child { display: none; }
+  #events .grid[class*="sm:grid-cols-3"] .group h3 + p { -webkit-line-clamp: 2; }
+  .hero-subtitle { max-width: 31rem !important; }
 }

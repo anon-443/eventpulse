@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { Route, Router as WouterRouter, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
+import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -26,7 +26,12 @@ function Router() {
   </AnimatePresence><AIDescriptionHistoryDock /></>;
 }
 
-export default function App() {
+function AppContent() {
+  const { reduceMotion } = useTheme();
   const base = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
-  return <ErrorBoundary><ThemeProvider defaultTheme="light" switchable><MotionConfig reducedMotion="user"><TooltipProvider><Toaster position="top-right" richColors /><WouterRouter base={base}><Router /></WouterRouter></TooltipProvider></MotionConfig></ThemeProvider></ErrorBoundary>;
+  return <MotionConfig reducedMotion={reduceMotion ? "always" : "user"}><TooltipProvider><Toaster position="top-right" richColors /><WouterRouter base={base}><Router /></WouterRouter></TooltipProvider></MotionConfig>;
+}
+
+export default function App() {
+  return <ErrorBoundary><ThemeProvider defaultTheme="light" switchable><AppContent /></ThemeProvider></ErrorBoundary>;
 }

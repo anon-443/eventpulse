@@ -6,6 +6,8 @@ interface ThemeContextType {
   theme: Theme;
   toggleTheme?: () => void;
   switchable: boolean;
+  reduceMotion: boolean;
+  toggleReduceMotion: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -28,6 +30,12 @@ export function ThemeProvider({
     }
     return defaultTheme;
   });
+  const [reduceMotion, setReduceMotion] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const saved = localStorage.getItem("eventpulse-reduce-motion");
+    if (saved !== null) return saved === "true";
+    return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+  });
 
   useEffect(() => {
     const root = document.documentElement;
@@ -42,6 +50,11 @@ export function ThemeProvider({
     }
   }, [theme, switchable]);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("reduce-motion", reduceMotion);
+    localStorage.setItem("eventpulse-reduce-motion", String(reduceMotion));
+  }, [reduceMotion]);
+
   const toggleTheme = switchable
     ? () => {
         setTheme(prev => (prev === "light" ? "dark" : "light"));
@@ -49,7 +62,7 @@ export function ThemeProvider({
     : undefined;
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, switchable }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, switchable, reduceMotion, toggleReduceMotion: () => setReduceMotion(previous => !previous) }}>
       {children}
     </ThemeContext.Provider>
   );

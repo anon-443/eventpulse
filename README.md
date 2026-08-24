@@ -25,13 +25,14 @@ The public static site is available at:
 
 | Area | Included experience |
 | --- | --- |
-| Discovery | Search, category chips, price, date, and event-type filters with responsive event cards |
+| Discovery | Search, desktop filter controls, a touch-friendly mobile filter drawer, category selection, and responsive event cards |
+| Viewing preferences | Persistent comfortable/compact card density control and an optional reduced-motion setting, with system preference support |
 | Event details | Agenda, venue information, countdown timer, map presentation, and share controls |
 | Booking | Multi-step demo booking flow, ticket confirmation, QR presentation, and ticket download |
 | Wallet | Saved passes, expiry filters, pass reminders, 3D flip cards, visual barcode, entry rules, quick share, and a clearly labelled mock ticket transfer |
 | Profile | Local account preview, notification preferences, referral insights, CSV export, and account-scoped rewards |
 | Organizer Hub | Event management UI, auto-saved event drafts, live preview, ticket theme/logo customization, and AI-description workflow for the server-enabled app |
-| Polish | Light and dark modes, reduced-motion support, responsive navigation, accessible focus states, and toast feedback |
+| Polish | Light and dark modes, reduced-motion support, responsive navigation, accessible focus states, concise card hierarchy, and toast feedback |
 
 ## Technology
 
@@ -62,7 +63,9 @@ After the server starts, open the printed local URL and use the main navigation 
 
 | Goal | How to use it |
 | --- | --- |
-| Find an event | Use the homepage search field, date/price/type selectors, and category chips to narrow the event edit. |
+| Find an event | Use the homepage search field and desktop category/date/price/type controls. On phones, use the **Filters** button to open a bottom-sheet filter drawer. |
+| Change the event view | Choose **Comfortable** or **Compact** above the event grid. The preference remains available after a refresh on the same browser. |
+| Reduce movement | Use the **Motion** control above the event grid to disable nonessential entrance and decorative motion. The setting is saved locally and also honors operating-system reduced-motion preferences. |
 | Review an event | Select an event card to open its concise detail preview, then use **Book ticket** to enter the demonstration booking flow. |
 | Save and schedule | Use the bookmark control on an event card. Saved events show an **Add to Calendar** action that downloads a standard `.ics` file. |
 | Use tickets and profile tools | Open **Account** to view locally stored passes, notification choices, referral insights, wallet filters, and rewards demonstrations. |
@@ -103,7 +106,7 @@ GitHub Actions will publish the new static build to [the live site](https://anon
 
 ## Static-site limitations
 
-GitHub Pages serves static files only, so it does **not** run the Express/tRPC server, database, authentication, or server-side AI procedure. The Pages version continues to support browser-based discovery, filters, demo booking, locally stored wallet/profile experiences, referral views, organizer UI, and theme preferences. The AI description generator is intentionally shown as unavailable on the static deployment rather than presenting a misleading result.
+GitHub Pages serves static files only, so it does **not** run the Express/tRPC server, database, authentication, or server-side AI procedure. The Pages version continues to support browser-based discovery, mobile filters, density and motion preferences, demo booking, locally stored wallet/profile experiences, referral views, organizer UI, and theme preferences. The AI description generator is intentionally shown as unavailable on the static deployment rather than presenting a misleading result.
 
 Use a server-enabled deployment for live AI generation, real user accounts, ticket validation, or any feature that requires a private API key or database.
 

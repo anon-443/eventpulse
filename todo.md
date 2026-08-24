@@ -306,3 +306,8 @@
 - [x] Update README with final feature overview, local setup, GitHub Pages usage, and clear demo-only disclaimers.
 - [x] Update the GitHub repository description and topics for the final public release.
 - [x] Run tests, type checks, production build, and multi-viewport visual verification before publishing.
+
+## Discovery Readability Scale
+
+- [x] Increase discovery eyebrow, heading, search field, filters, category chips, event count, and preference-control text sizing.
+- [x] Verify the larger discovery controls remain balanced at desktop and phone widths, then publish to GitHub Pages.

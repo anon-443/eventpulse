@@ -315,3 +315,27 @@ main.container { padding-top: 2rem !important; padding-bottom: 3rem !important; 
   #events .grid[class*="sm:grid-cols-3"] .group h3 + p { -webkit-line-clamp: 2; }
   .hero-subtitle { max-width: 31rem !important; }
 }
+
+/* Discovery readability scale: larger editorial type and visibly usable search, filter, and preference controls. */
+#events > div:first-child .mb-3 { font-size: 12px !important; letter-spacing: .22em !important; }
+#events h2 { font-size: clamp(3rem, 4.45vw, 3.45rem) !important; }
+#events .rounded-\[1\.6rem\] > div:first-child > label,
+#events .rounded-\[1\.6rem\] > div:first-child > button { min-height: 56px !important; }
+#events .rounded-\[1\.6rem\] input,
+#events .rounded-\[1\.6rem\] select { font-size: 1rem !important; }
+#events .rounded-\[1\.6rem\] label > svg { width: 20px !important; height: 20px !important; }
+#events #categories button { padding: .75rem 1.1rem !important; font-size: 13px !important; }
+#events #categories button svg { width: 16px !important; height: 16px !important; }
+#events > .mt-8 > p { font-size: 1rem !important; }
+#events [aria-label="Event card density"] button,
+#events > .mt-8 > div > button { min-height: 40px; font-size: 13px !important; }
+#events [aria-label="Event card density"] button svg,
+#events > .mt-8 > div > button svg { width: 16px !important; height: 16px !important; }
+@media (max-width: 639px) {
+  #events h2 { font-size: clamp(2.8rem, 11vw, 3.15rem) !important; }
+  #events .rounded-\[1\.6rem\] > div:first-child > label,
+  #events .rounded-\[1\.6rem\] > div:first-child > button { min-height: 52px !important; }
+  #events > .mt-8 > p { font-size: 15px !important; }
+  #events [aria-label="Event card density"] button,
+  #events > .mt-8 > div > button { font-size: 12px !important; }
+}

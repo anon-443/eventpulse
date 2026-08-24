@@ -236,7 +236,7 @@ const EVENTS: EventItem[] = [
     location: "Portland, OR",
     price: 46,
     description: "A forgiving afternoon of hand-building, shared tea, and the pleasure of making something slowly.",
-    image: "https://images.unsplash.com/photo-1565193298357-c64467c7f4e5?auto=format&fit=crop&w=1400&q=86",
+    image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1400&q=86",
     attendees: "42 going",
     organizer: "Morrow Ceramics",
     organizerRole: "Neighborhood clay studio",

@@ -311,3 +311,16 @@
 
 - [x] Increase discovery eyebrow, heading, search field, filters, category chips, event count, and preference-control text sizing.
 - [x] Verify the larger discovery controls remain balanced at desktop and phone widths, then publish to GitHub Pages.
+
+## Discovery Scale Rebalance
+
+- [x] Increase discovery heading, filter, category, status, and preference-control sizing with balanced proportions.
+- [x] Verify desktop and phone presentation, then publish the enhanced sizing to GitHub Pages.
+
+## Public Repository Finalization
+
+- [x] Audit tracked files and reachable Git history for credentials, personal data, private URLs, and unnecessary artifacts.
+- [x] Remove unnecessary public material and refine README content for clean student-project submission.
+- [x] Update the public GitHub repository description and topics for EventPulse.
+- [x] Amend the latest Git commit message to `Finalize project` and safely force-push the rewritten latest commit.
+- [x] Confirm the public repository and GitHub Pages links load correctly.
